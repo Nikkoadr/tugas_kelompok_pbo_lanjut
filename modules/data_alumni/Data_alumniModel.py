@@ -1,7 +1,7 @@
 from core.CoreModel import CoreModel
 from connection import get_db
 
-class Ta_mahasiswaModel(CoreModel):
+class Data_alumniModel(CoreModel):
     def __init__(self):
         self.table_name = "alumni"
         self.table_id = "id_lulus"

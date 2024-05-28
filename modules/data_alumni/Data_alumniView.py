@@ -1,11 +1,11 @@
 from flask import *
-from modules.ta_mahasiswa.Ta_mahasiswaModel import *
+from modules.data_alumni.Data_alumniModel import *
 
-class Ta_mahasiswaView:
+class Data_alumniView:
     
     @staticmethod
     def index():
-        data = Ta_mahasiswaModel().get_nama()
+        data = Data_alumniModel().get_nama()
         return render_template('index.html',data=data) #jsonify(data)
     
     @staticmethod
@@ -14,39 +14,39 @@ class Ta_mahasiswaView:
     
     @staticmethod
     def store():
-        mahasiswa_obj = Ta_mahasiswaModel()
+        obj = Data_alumniModel()
         post = request.form
         obj.nim = post['nim']
         obj.nama = post['nama']
-        Ta_mahasiswaModel().store(obj)
+        Data_alumniModel().store(obj)
         flash('Data berhasil ditambahkan', 'success')
         return redirect('/ta_mahasiswa')
     
     @staticmethod
-    def edit(mahasiswa_id):
-        obj = Ta_mahasiswaModel().find(id)
+    def edit(id):
+        obj = Data_alumniModel().find(id)
         return render_template('edit.html',obj=obj)
     
     @staticmethod
     def update(id):
-        data = Ta_mahasiswaModel().find(id)
+        data = Data_alumniModel().find(id)
         if data:
             post = request.form
-            obj = Ta_mahasiswaModel()
+            obj = Data_alumniModel()
             obj.nim = post['nim']
             obj.nama = post['nama']
-            Ta_mahasiswaModel().update(id, obj)
+            Data_alumniaModel().update(id, obj)
             flash('Data berhasil diperbarui', 'success')
-            return redirect('/ta_mahasiswa')
+            return redirect('/data_alumni')
         else:
             return redirect(request.referrer)
         
     @staticmethod
     def delete(id):
-        data = Ta_mahasiswaModel().find(id)
+        data = Data_alumniModel().find(id)
         if data:
-            Ta_mahasiswaModel().delete(id)
+            Data_alumniModel().delete(id)
             flash('Data berhasil dihapus', 'success')
-            return redirect ('/ta_mahasiswa')
+            return redirect ('/data_alumni')
         else: 
             return redirect(request.referrer)
