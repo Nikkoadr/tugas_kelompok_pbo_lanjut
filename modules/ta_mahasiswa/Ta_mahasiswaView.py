@@ -5,7 +5,7 @@ class Ta_mahasiswaView:
     
     @staticmethod
     def index():
-        data = Ta_mahasiswaModel().all()
+        data = Ta_mahasiswaModel().get_nama()
         return render_template('index.html',data=data) #jsonify(data)
     
     @staticmethod
@@ -19,8 +19,8 @@ class Ta_mahasiswaView:
         obj.nim = post['nim']
         obj.nama = post['nama']
         Ta_mahasiswaModel().store(obj)
-        flash('Data dosen berhasil ditambahkan', 'success')
-        return redirect('/mahasiswa')
+        flash('Data berhasil ditambahkan', 'success')
+        return redirect('/ta_mahasiswa')
     
     @staticmethod
     def edit(mahasiswa_id):
@@ -32,12 +32,12 @@ class Ta_mahasiswaView:
         data = Ta_mahasiswaModel().find(id)
         if data:
             post = request.form
-            mahasiswa_obj = Ta_mahasiswaModel()
-            mahasiswa_obj.nim = post['nim']
-            mahasiswa_obj.nama = post['nama']
+            obj = Ta_mahasiswaModel()
+            obj.nim = post['nim']
+            obj.nama = post['nama']
             Ta_mahasiswaModel().update(id, obj)
-            flash('Data mahasiswa berhasil diperbarui', 'success')
-            return redirect('/mahasiswa')
+            flash('Data berhasil diperbarui', 'success')
+            return redirect('/ta_mahasiswa')
         else:
             return redirect(request.referrer)
         
@@ -46,7 +46,7 @@ class Ta_mahasiswaView:
         data = Ta_mahasiswaModel().find(id)
         if data:
             Ta_mahasiswaModel().delete(id)
-            flash('Data mahasiswa berhasil dihapus', 'success')
-            return redirect ('/mahasiswa')
+            flash('Data berhasil dihapus', 'success')
+            return redirect ('/ta_mahasiswa')
         else: 
             return redirect(request.referrer)
