@@ -9,7 +9,7 @@
     </head>
     <body>
         <div class="card-body">
-            <h1 class="text-center">Data Alumni</h1>
+            <h1 class="text-center">Publikasi Dosen</h1>
             {% for pesan in get_flashed_messages() %}
             <h5 class="alert alert-success text-center">{{ pesan }}</h5>
             {% endfor %}
@@ -18,19 +18,15 @@
             <a class="btn btn-primary float-start m-1" href="/publikasi_dosen">Publikasi Dosen</a>
             <a class="btn btn-primary float-start m-1" href="/manajemen_wisuda">Manajemen Wisuda</a>
             <a class="btn btn-primary float-start m-1" href="/career_center">Career Center</a>
-            <a class="btn btn-success float-end" href="/mahasiswa/create">Tambah</a>
+            <a class="btn btn-success float-end" href="/data_alumni/create">Tambah</a>
             <table class="table table-striped">
                 <thead>
                 <tr class="text-center">
                     <th>No</th>
-                    <th>Nama Alumni</th>
-                    <th>Tanggal Yudisium</th>
-                    <th>Tanggal Wisuda</th>
-                    <th>No Ijazah</th>
-                    <th>Judul Skripsi</th>
-                    <th>IPK Lulus</th>
-                    <th>Bidang Kerja</th>
-                    <th>Perusahaan Kerja</th>
+                    <th>Tanggal Publikasi</th>
+                    <th>Judul Publikasi</th>
+                    <th>Jenis Publikasi</th>
+                    <th>Nama Dosen</th>
                     <th>Aksi</th>
                 </tr>
                 </thead>
@@ -38,14 +34,10 @@
                 {% for obj in data %}
                 <tr>
                     <td>{{ loop.index }}</td>
-                    <td>{{obj.nama_awal}} {{ obj.nama_akhir }}</td>
-                    <td>{{obj.tgl_yudisium}}</td>
-                    <td>{{obj.tgl_wisuda}}</td>
-                    <td>{{obj.no_ijazah}}</td>
-                    <td>{{obj.judul_skripsi}}</td>
-                    <td>{{obj.ipk_lulus}}</td>
-                    <td>{{obj.bidang_kerja}}</td>
-                    <td>{{obj.perusahaan_kerja}}</td>
+                    <td>{{obj.tgl_publikasi}}</td>
+                    <td>{{obj.judul}}</td>
+                    <td>{{obj.jenis_publikasi}}</td>
+                    <td>{{obj.nama_dosen}}</td>
                     <td class="text-center align-middle">
                         <div class="btn-group" role="group" aria-label="Action buttons">
                             <a class="btn btn-info" href="/data_alumni/edit/{{obj.id_lulus}}">
