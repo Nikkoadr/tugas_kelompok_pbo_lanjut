@@ -23,9 +23,9 @@
                 <thead>
                 <tr class="text-center">
                     <th>No</th>
-                    <th>id Wisuda</th>
-                    <th>id Mahasiswa</th>
+                    <th>Nama Alumni</th>
                     <th>Tanggal Yudisium</th>
+                    <th>Tanggal Wisuda</th>
                     <th>No Ijazah</th>
                     <th>Judul Skripsi</th>
                     <th>IPK Lulus</th>
@@ -38,9 +38,9 @@
                 {% for obj in data %}
                 <tr>
                     <td>{{ loop.index }}</td>
-                    <td>{{obj.id_wisuda}}</td>
                     <td>{{obj.nama_awal}} {{ obj.nama_akhir }}</td>
                     <td>{{obj.tgl_yudisium}}</td>
+                    <td>{{obj.tgl_wisuda}}</td>
                     <td>{{obj.no_ijazah}}</td>
                     <td>{{obj.judul_skripsi}}</td>
                     <td>{{obj.ipk_lulus}}</td>
