@@ -11,14 +11,6 @@
         <h1 class="text-center">Edit Data Alaumni</h1>
         <form action="/data_alumni/update/{{ obj.id_lulus }}" method="POST">
             <div class="mb-3">
-                <label for="nama_awal" class="form-label">Nama Awal</label>
-                <input id="nama_awal" name="nama_awal" type="text" class="form-control" value="{{ obj.nama_awal }}" required>
-            </div>
-            <div class="mb-3">
-                <label for="nama_akhir" class="form-label">Nama Akhir</label>
-                <input id="nama_akhir" name="nama_akhir" type="text" class="form-control" value="{{ obj.nama_akhir }}" required>
-            </div>
-            <div class="mb-3">
                 <label for="ipk_lulus" class="form-label">IPK Lulus</label>
                 <input id="ipk_lulus" name="ipk_lulus" type="text" class="form-control" value="{{ obj.ipk_lulus }}" required>
             </div>
@@ -34,7 +26,7 @@
                 <label for="perusahaan_kerja" class="form-label">Perusahaan kerja</label>
                 <input id="perusahaan_kerja" name="perusahaan_kerja" type="text" class="form-control" value="{{ obj.perusahaan_kerja }}" required>
             </div>
-            <a href="/id_lulus" class="btn btn-secondary float-end ms-2">Batal</a>
+            <a href="/data_alumni" class="btn btn-secondary float-end ms-2">Batal</a>
             <input type="submit" value="Edit" class="btn btn-primary float-end">
         </form>
     </div>

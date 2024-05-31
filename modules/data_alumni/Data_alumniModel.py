@@ -23,3 +23,7 @@ class Data_alumniModel(CoreModel):
         cursor.close()
         connection.close()
         return result
+    
+    def cari_mahasiswa(selfe):
+        connection = get_db()
+        cursor = connection.cursor()
