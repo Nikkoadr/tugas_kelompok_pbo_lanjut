@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+        <title>Tugas Akhir</title>
+    </head>
+    <body>
+        <div class="card-body">
+            <h1 class="text-center">Tugas Akhir mahasiswa</h1>
+            {% for pesan in get_flashed_messages() %}
+            <h5 class="alert alert-success text-center">{{ pesan }}</h5>
+            {% endfor %}
+            <a class="btn btn-primary float-start m-1" href="/tugas_akhir_mahasiswa">Tugas Akhir</a>
+            <a class="btn btn-primary float-start m-1" href="/data_alumni">Data Alumni</a>
+            <a class="btn btn-primary float-start m-1" href="/publikasi_dosen">Publikasi Dosen</a>
+            <a class="btn btn-primary float-start m-1" href="/manajemen_wisuda">Manajemen Wisuda</a>
+            <a class="btn btn-primary float-start m-1" href="/alumni_career_center">Career Center</a>
+            <a class="btn btn-success float-end" href="/data_alumni/create">Tambah</a>
+            <table class="table table-striped">
+                <thead>
+                <tr class="text-center">
+                    <th>No</th>
+                    <th>Tanggal Publikasi</th>
+                    <th>Judul Publikasi</th>
+                    <th>Jenis Publikasi</th>
+                    <th>Nama Dosen</th>
+                    <th>Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for obj in data %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{obj.tgl_publikasi}}</td>
+                    <td>{{obj.judul}}</td>
+                    <td>{{obj.jenis_publikasi}}</td>
+                    <td>{{obj.nama_dosen}}</td>
+                    <td class="text-center align-middle">
+                        <div class="btn-group" role="group" aria-label="Action buttons">
+                            <a class="btn btn-info" href="/data_alumni/edit/{{obj.id_lulus}}">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <a class="btn btn-danger delete" href="/data_alumni/delete/{{obj.id_lulus}}" title="delete" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>
