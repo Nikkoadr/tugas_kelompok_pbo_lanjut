@@ -15,24 +15,25 @@
                 <tr>
                     <th>Nomor</th>
                     <th>Nama Mahasiswa</th>
-                    <th>Prodi</th>
+                    <th>Program Studi</th>
                     <th>Pilih</th>
                 </tr>
             </thead>
             <tbody>
-                
+                {% for row in data %}
                 <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ row.nama_awal }} {{ row.nama_akhir }}</td>
+                    <td>{{ row.program_studi }}</td>
                     <td class="text-center align-middle">
                         <div class="btn-group" role="group" aria-label="Action buttons">
-                            <a class="btn btn-info" href="tambah_alumni/">
+                            <a class="btn btn-info" href="tambah_alumni/{{ row.id_mahasiswa }}">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </a>
                         </div>
                     </td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
