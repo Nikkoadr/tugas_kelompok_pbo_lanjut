@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"rel="stylesheet"/>
+    <title>Tambah data</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center"></h1>
+        <form action="/mahasiswa/store" method="POST">
+            <div class="mb-3">
+                <label for="nim" class="form-label">NIM :</label>
+                <input name="nim" type="text" class="form-control" id="nim" >
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama :</label>
+                <input name="nama" type="text" class="form-control" id="nama" >
+            </div>
+            <a class="btn btn-secondary float-end ms-2" href="/mahasiswa" >Kembali</a>
+            <input type="submit" value="Tambah" class="btn btn-primary float-end">
+            </form>
+    </div>
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>
