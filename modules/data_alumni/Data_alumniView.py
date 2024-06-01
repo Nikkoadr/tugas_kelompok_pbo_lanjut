@@ -26,13 +26,16 @@ class Data_alumniView:
     def store():
         obj = Data_alumniModel()
         post = request.form
+        obj.id_mahasiswa = post['id_mahasiswa']
+        obj.tgl_yudisium = post['tgl_yudisium']
         obj.ipk_lulus = post['ipk_lulus']
         obj.judul_skripsi = post['judul_skripsi']
+        obj.bidang_kerja = post['bidang_kerja']
         obj.no_ijazah = post['no_ijazah']
         obj.perusahaan_kerja = post['perusahaan_kerja']
         Data_alumniModel().store(obj)
         flash('Data berhasil ditambahkan', 'success')
-        return redirect('/ta_mahasiswa')
+        return redirect('/data_alumni')
     
     @staticmethod
     def edit(id):

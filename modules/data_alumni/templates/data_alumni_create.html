@@ -12,10 +12,30 @@
         <h5>Nama Mahasiswa : {{ data.nama_awal }} {{ data.nama_akhir }}</h5>
 
         <form action="/data_alumni/store" method="POST">
-                <input id="id_mahasiswa" name="id_mahasiswa" type="hidden" class="form-control" value="{{ data.id_mahasiswa }}" required>
+                <input id="id_mahasiswa" name="id_mahasiswa" type="hidden" class="form-control" required>
             <div class="mb-3">
-                <label for="nama" class="form-label">Nama</label>
-                <input id="nama" name="nama" type="text" class="form-control" value="{{ data.id_mahasiswa }}" required>
+                <label for="tgl_yudisium" class="form-label">Nomor ijazahTanggal Yudisium</label>
+                <input id="tgl_yudisium" name="tgl_yudisium" type="date" class="form-control"  required>
+            </div>
+            <div class="mb-3">
+                <label for="no_ijazah" class="form-label">Nomor ijazah</label>
+                <input id="no_ijazah" name="no_ijazah" type="text" class="form-control"  required>
+            </div>
+            <div class="mb-3">
+                <label for="judul_skripsi" class="form-label">Judul Skripsi</label>
+                <input id="judul_skripsi" name="judul_skripsi" type="text" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="ipk_lulus" class="form-label">IPK Lulus</label>
+                <input id="ipk_lulus" name="ipk_lulus" type="text" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="bidang_kerja" class="form-label">Bidang Kerja</label>
+                <input id="bidang_kerja" name="bidang_kerja" type="text" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="perusahaan_kerja" class="form-label">Perusaahan Kerja</label>
+                <input id="perusahaan_kerja" name="perusahaan_kerja" type="text" class="form-control" required>
             </div>
             <a class="btn btn-secondary float-end ms-2" href="/data_alumni" >Kembali</a>
             <input type="submit" value="Tambah" class="btn btn-primary float-end">
