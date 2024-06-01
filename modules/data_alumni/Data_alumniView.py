@@ -19,6 +19,7 @@ class Data_alumniView:
     @staticmethod
     def store():
         obj = Data_alumniModel()
+        post = request.form
         obj.ipk_lulus = post['ipk_lulus']
         obj.judul_skripsi = post['judul_skripsi']
         obj.no_ijazah = post['no_ijazah']
