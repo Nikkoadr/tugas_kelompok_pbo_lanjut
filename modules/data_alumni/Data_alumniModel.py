@@ -38,6 +38,40 @@ class Data_alumniModel(CoreModel):
         connection.close()
         return result
     
+    def wisuda(self):
+        connection = get_db()
+        cursor = connection.cursor()
+        query = """
+                    SELECT 
+                        wisuda.id_wisuda,
+                        wisuda.tgl_wisuda
+                    FROM 
+                        wisuda
+                """
+        cursor.execute(query)
+        result = cursor.fetchall()
+        cursor.close()
+        connection.close()
+        return result
+
+    def cari_wisuda(self, id):
+        connection = get_db()
+        cursor = connection.cursor()
+        query = """
+                    SELECT 
+                        wisuda.id_wisuda,
+                        wisuda.tgl_wisuda
+                    FROM 
+                        wisuda
+                    WHERE
+                        wisuda.id_wisuda = %s;
+                """
+        cursor.execute(query, (id,))
+        result = cursor.fetchone()
+        cursor.close()
+        connection.close()
+        return result
+
     def mahasiswa(self):
         connection = get_db()
         cursor = connection.cursor()

@@ -10,13 +10,11 @@
 <body>
     <div class="container">
         <h1 class="text-center">Tambah Data Alumni</h1>
-        <h2 class="text-center">tanggal Wisudah : </h2>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Nomor</th>
-                    <th>Nama Mahasiswa</th>
-                    <th>Program Studi</th>
+                    <th>tanggal Wisuda</th>
                     <th>Pilih</th>
                 </tr>
             </thead>
@@ -24,11 +22,10 @@
                 {% for row in data %}
                 <tr>
                     <td>{{ loop.index }}</td>
-                    <td>{{ row.nama_awal }} {{ row.nama_akhir }}</td>
-                    <td>{{ row.program_studi }}</td>
+                    <td>{{ row.tgl_wisuda }}</td>
                     <td class="text-center align-middle">
                         <div class="btn-group" role="group" aria-label="Action buttons">
-                            <a class="btn btn-info" href="tambah_alumni/{{ row.id_mahasiswa }}">
+                            <a class="btn btn-info" href="mahasiswa/{{ row.id_wisuda }}">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </a>
                         </div>

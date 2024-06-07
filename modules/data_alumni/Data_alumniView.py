@@ -13,9 +13,15 @@ class Data_alumniView:
         return render_template('data_alumni_create.html')
         
     @staticmethod
-    def mahasiswa():
+    def wisuda():
+        data = Data_alumniModel().wisuda()
+        return render_template('wisudah.html', data=data)
+    
+    @staticmethod
+    def mahasiswa(id):
+        data_wisuda = Data_alumniModel().cari_wisuda(id)
         data = Data_alumniModel().mahasiswa()
-        return render_template('mahasiswa.html', data=data)
+        return render_template('mahasiswa.html', data=data, data_wisuda=data_wisuda)
     
     @staticmethod
     def tambah_alumni(id):
