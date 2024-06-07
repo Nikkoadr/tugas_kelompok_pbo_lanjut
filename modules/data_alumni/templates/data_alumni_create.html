@@ -12,7 +12,7 @@
         <h5>Nama Mahasiswa : {{ data.nama_awal }} {{ data.nama_akhir }}</h5>
 
         <form action="/data_alumni/store" method="POST">
-                <input id="id_mahasiswa" name="id_mahasiswa" type="hidden" class="form-control" required>
+                <input id="id_mahasiswa" name="id_mahasiswa" type="hidden" value="{{ data.id_mahasiswa }}" required>
             <div class="mb-3">
                 <label for="tgl_yudisium" class="form-label">Nomor ijazahTanggal Yudisium</label>
                 <input id="tgl_yudisium" name="tgl_yudisium" type="date" class="form-control"  required>
