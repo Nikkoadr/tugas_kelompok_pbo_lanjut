@@ -24,15 +24,18 @@ class Data_alumniView:
         return render_template('mahasiswa.html', data=data, data_wisuda=data_wisuda)
     
     @staticmethod
-    def tambah_alumni(id):
-        data = Data_alumniModel().cari_mahasiswa(id)
-        return render_template('data_alumni_create.html', data=data)
+    def tambah_alumni():
+        id_wisuda = request.form['id_wisuda']
+        id_mahasiswa = request.form['id_mahasiswa']
+        data = Data_alumniModel().cari_mahasiswa(id_mahasiswa)
+        return render_template('data_alumni_create.html', data=data,id_wisuda=id_wisuda)
 
     @staticmethod
     def store():
         obj = Data_alumniModel()
         post = request.form
         obj.id_mahasiswa = post['id_mahasiswa']
+        obj.id_wisuda = post['id_wisuda']
         obj.tgl_yudisium = post['tgl_yudisium']
         obj.ipk_lulus = post['ipk_lulus']
         obj.judul_skripsi = post['judul_skripsi']

@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1 class="text-center">Tambah Data Alumni</h1>
-        <h2 class="text-center">tanggal Wisudah : </h2>
+        <h2 class="text-center">tanggal Wisudah : {{ data_wisuda.tgl_wisuda }}</h2>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -27,11 +27,13 @@
                     <td>{{ row.nama_awal }} {{ row.nama_akhir }}</td>
                     <td>{{ row.program_studi }}</td>
                     <td class="text-center align-middle">
-                        <div class="btn-group" role="group" aria-label="Action buttons">
-                            <a class="btn btn-info" href="tambah_alumni/{{ row.id_mahasiswa }}">
+                        <form action="/data_alumni/tambah_alumni" method="post">
+                            <input type="hidden" name="id_wisuda" value="{{ data_wisuda.id_wisuda }}">
+                            <input type="hidden" name="id_mahasiswa" value="{{ row.id_mahasiswa }}">
+                            <button type="submit" class="btn btn-info">
                                 <i class="fa-solid fa-pen-to-square"></i>
-                            </a>
-                        </div>
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 {% endfor %}
