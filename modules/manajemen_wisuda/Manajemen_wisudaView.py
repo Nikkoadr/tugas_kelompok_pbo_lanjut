@@ -16,7 +16,7 @@ class Manajemen_wisudaView:
     def store():
         obj = Manajemen_wisudaModel()
         post = request.form
-        obj.tanggal_wisuda = post['tgl_wisuda']
+        obj.tgl_wisuda = post['tgl_wisuda']
         Manajemen_wisudaModel().store(obj)
         flash('Data berhasil ditambahkan', 'success')
         return redirect('/manajemen_wisuda')
@@ -32,8 +32,8 @@ class Manajemen_wisudaView:
         if data:
             post = request.form
             obj = Manajemen_wisudaModel()
-            obj.id = post['t']
-            obj.nama = post['nama']
+            obj.id_wisuda = post['id_wisuda']
+            obj.tgl_wisuda = post['tgl_wisuda']
             Manajemen_wisudaModel().update(id, obj)
             flash('Data berhasil diperbarui', 'success')
             return redirect('/manajemen_wisuda')
