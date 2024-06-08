@@ -5,7 +5,7 @@ class Manajemen_wisudaView:
     
     @staticmethod
     def index():
-        data = Manajemen_wisudaModel().get_nama()
+        data = Manajemen_wisudaModel().all()
         return render_template('manajemen_wisuda_index.html',data=data) #jsonify(data)
     
     @staticmethod
@@ -16,11 +16,10 @@ class Manajemen_wisudaView:
     def store():
         obj = Manajemen_wisudaModel()
         post = request.form
-        obj.nim = post['nim']
-        obj.nama = post['nama']
-        Data_alumniModel().store(obj)
+        obj.tanggal_wisuda = post['tgl_wisuda']
+        Manajemen_wisudaModel().store(obj)
         flash('Data berhasil ditambahkan', 'success')
-        return redirect('/ta_mahasiswa')
+        return redirect('/manajemen_wisuda')
     
     @staticmethod
     def edit(id):
@@ -33,7 +32,7 @@ class Manajemen_wisudaView:
         if data:
             post = request.form
             obj = Manajemen_wisudaModel()
-            obj.nim = post['nim']
+            obj.id = post['t']
             obj.nama = post['nama']
             Manajemen_wisudaModel().update(id, obj)
             flash('Data berhasil diperbarui', 'success')

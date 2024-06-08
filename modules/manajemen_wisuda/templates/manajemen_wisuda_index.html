@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"rel="stylesheet"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-        <title>Tugas Akhir</title>
+        <title>Manajemen Wisuda</title>
     </head>
     <body>
         <div class="card-body">
@@ -18,32 +18,28 @@
             <a class="btn btn-secondary float-start m-1" href="/publikasi_dosen">Publikasi Dosen</a>
             <a class="btn btn-secondary float-start m-1" href="/manajemen_wisuda">Manajemen Wisuda</a>
             <a class="btn btn-secondary float-start m-1" href="/alumni_career_center">Career Center</a>
-            <a class="btn btn-success float-end" href="/data_alumni/create">Tambah</a>
+            <a class="btn btn-success float-end" href="/manajemen_wisuda/create">Tambah</a>
             <table class="table table-striped">
                 <thead>
                 <tr class="text-center">
                     <th>No</th>
-                    <th>Tanggal Publikasi</th>
-                    <th>Judul Publikasi</th>
-                    <th>Jenis Publikasi</th>
-                    <th>Nama Dosen</th>
+                    <th>ID Wisuda</th>
+                    <th>Tanggal Wisuda</th>
                     <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for obj in data %}
-                <tr>
+                <tr class="text-center">
                     <td>{{ loop.index }}</td>
-                    <td>{{obj.tgl_publikasi}}</td>
-                    <td>{{obj.judul}}</td>
-                    <td>{{obj.jenis_publikasi}}</td>
-                    <td>{{obj.nama_dosen}}</td>
+                    <td>{{obj.id_wisuda}}</td>
+                    <td>{{obj.tgl_wisuda}}</td>
                     <td class="text-center align-middle">
                         <div class="btn-group" role="group" aria-label="Action buttons">
-                            <a class="btn btn-info" href="/data_alumni/edit/{{obj.id_lulus}}">
+                            <a class="btn btn-info" href="/manajemen_wisuda/edit/{{obj.id_wisuda}}">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </a>
-                            <a class="btn btn-danger delete" href="/data_alumni/delete/{{obj.id_lulus}}" title="delete" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">
+                            <a class="btn btn-danger delete" href="/manajemen_wisuda/delete/{{obj.id_wisuda}}" title="delete" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">
                                 <i class="fa-solid fa-trash-can"></i>
                             </a>
                         </div>

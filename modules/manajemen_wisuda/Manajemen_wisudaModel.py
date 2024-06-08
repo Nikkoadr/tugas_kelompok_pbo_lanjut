@@ -3,8 +3,8 @@ from connection import get_db
 
 class Manajemen_wisudaModel(CoreModel):
     def __init__(self):
-        self.table_name = "manajemen_wisuda"
-        self.table_id = "id_manajemen_wisuda"
+        self.table_name = "wisuda"
+        self.table_id = "id_wisuda"
 
     def get_nama(self):
         connection = get_db()
