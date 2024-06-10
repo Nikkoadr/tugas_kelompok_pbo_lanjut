@@ -16,11 +16,17 @@ class Alumni_career_centerView:
     def store():
         obj = Alumni_career_centerModel()
         post = request.form
-        obj.nim = post['nim']
-        obj.nama = post['nama']
+        obj.id_mahasiswa = post['id_mahasiswa']
+        obj.id_wisuda = post['id_wisuda']
+        obj.tgl_yudisium = post['tgl_yudisium']
+        obj.ipk_lulus = post['ipk_lulus']
+        obj.judul_skripsi = post['judul_skripsi']
+        obj.bidang_kerja = post['bidang_kerja']
+        obj.no_ijazah = post['no_ijazah']
+        obj.perusahaan_kerja = post['perusahaan_kerja']
         Alumni_career_centerModel().store(obj)
-        flash('Data berhasil ditambahkan', 'success')
-        return redirect('/ta_mahasiswa')
+        flash('Data Berhasil Ditambahkan', 'success')
+        return redirect('/alumni_career_center')
     
     @staticmethod
     def edit(id):
@@ -33,10 +39,16 @@ class Alumni_career_centerView:
         if data:
             post = request.form
             obj = Alumni_career_centerModel()
-            obj.nim = post['nim']
-            obj.nama = post['nama']
+            obj.id_mahasiswa = post['id_mahasiswa']
+            obj.id_wisuda = post['id_wisuda']
+            obj.tgl_yudisium = post['tgl_yudisium']
+            obj.ipk_lulus = post['ipk_lulus']
+            obj.judul_skripsi = post['judul_skripsi']
+            obj.bidang_kerja = post['bidang_kerja']
+            obj.no_ijazah = post['no_ijazah']
+            obj.perusahaan_kerja = post['perusahaan_kerja']
             Alumni_career_centerModel().update(id, obj)
-            flash('Data berhasil diperbarui', 'success')
+            flash('Data Berhasil Diperbaharui', 'success')
             return redirect('/alumni_career_center')
         else:
             return redirect(request.referrer)
@@ -46,7 +58,7 @@ class Alumni_career_centerView:
         data = Alumni_career_centerModel().find(id)
         if data:
             Alumni_career_centerModel().delete(id)
-            flash('Data berhasil dihapus', 'success')
+            flash('Data Berhasil Dihapus', 'success')
             return redirect ('/alumni_career_center')
         else: 
             return redirect(request.referrer)
