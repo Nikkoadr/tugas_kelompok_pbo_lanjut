@@ -22,7 +22,7 @@ class Alumni_career_centerView:
         obj.tgl_loker = post['tgl_loker']
         obj.ket_loker = post['ket_loker']
         obj.jenis_loker = post['jenis_loker']
-        obj.id_wisuda = post['id_wisuda']
+        
         Alumni_career_centerModel().store(obj)
         flash('Data Berhasil Ditambahkan', 'success')
         return redirect('/alumni_career_center')
@@ -44,7 +44,7 @@ class Alumni_career_centerView:
             obj.tgl_loker = post['tgl_loker']
             obj.ket_loker = post['ket_loker']
             obj.jenis_loker = post['jenis_loker']
-            obj.id_wisuda = post['id_wisuda']
+            
             Alumni_career_centerModel().update(id, obj)
             flash('Data Berhasil Diperbaharui', 'success')
             return redirect('/alumni_career_center')
