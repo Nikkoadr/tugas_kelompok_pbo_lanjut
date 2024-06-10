@@ -9,22 +9,34 @@
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Edit Alumni Career Center</h1>
-        <form action="/alumni_career_center/update/{{ obj.id_lulus }}" method="POST">
+        <form action="/alumni_career_center/update/{{ obj.id_loker }}" method="POST">
             <div class="mb-3">
-                <label for="ipk_lulus" class="form-label">IPK Lulus</label>
-                <input id="ipk_lulus" name="ipk_lulus" type="text" class="form-control" value="{{ obj.ipk_lulus }}" required>
+                <label for="id_loker" class="form-label"> ID Loker</label>
+                <input id="id_loker" name="id_loker" type="text" class="form-control" value="{{ obj.id_loker }}" required>
             </div>
             <div class="mb-3">
-                <label for="judul_skripsi" class="form-label">Judul Skripsi</label>
-                <input id="judul_skripsi" name="judul_skripsi" type="text" class="form-control" value="{{ obj.judul_skripsi }}" required>
+                <label for="loker" class="form-label">Loker</label>
+                <input id="loker" name="loker" type="text" class="form-control" value="{{ obj.loker }}" required>
             </div>
             <div class="mb-3">
-                <label for="no_ijazah" class="form-label">Nomor Ijazah</label>
-                <input id="no_ijazah" name="no_ijazah" type="text" class="form-control" value="{{ obj.no_ijazah }}" required>
+                <label for="nama_perusahaan" class="form-label">Nama Perusahaan</label>
+                <input id="nama_perusahaan" name="nama_perusahaan" type="text" class="form-control" value="{{ obj.nama_perusahaan }}" required>
             </div>
             <div class="mb-3">
-                <label for="perusahaan_kerja" class="form-label">Perusahaan kerja</label>
-                <input id="perusahaan_kerja" name="perusahaan_kerja" type="text" class="form-control" value="{{ obj.perusahaan_kerja }}" required>
+                <label for="tgl_loker" class="form-label">Tanggal Loker</label>
+                <input id="tgl_loker" name="tgl_loker" type="text" class="form-control" value="{{ obj.tgl_loker }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="ket_loker" class="form-label">Keterangan Loker</label>
+                <input id="ket_loker" name="ket_loker" type="text" class="form-control" value="{{ obj.ket_loker }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="jenis_loker" class="form-label">Jenis Loker</label>
+                <input id="jenis_loker" name="jenis_loker" type="text" class="form-control" value="{{ obj.jenis_loker }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="id_wisuda" class="form-label">ID Wisuda</label>
+                <input id="id_wisuda" name="id_wisuda" type="text" class="form-control" value="{{ obj.id_wisuda }}" required>
             </div>
             <a href="/alumni_career_center" class="btn btn-secondary float-end ms-2">Batal</a>
             <input type="submit" value="Edit" class="btn btn-primary float-end">

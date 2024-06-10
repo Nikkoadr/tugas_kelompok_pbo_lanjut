@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"rel="stylesheet"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-        <title>Tugas Akhir</title>
+        <title>Alumni Career Center</title>
     </head>
     <body>
         <div class="card-body">
@@ -23,14 +23,13 @@
                 <thead>
                 <tr class="text-center">
                     <th>No</th>
-                    <th>Nama Alumni</th>
-                    <th>Tanggal Yudisium</th>
-                    <th>Tanggal Wisuda</th>
-                    <th>No Ijazah</th>
-                    <th>Judul Skripsi</th>
-                    <th>IPK Lulus</th>
-                    <th>Bidang Kerja</th>
-                    <th>Perusahaan Kerja</th>
+                    <th>ID Loker</th>
+                    <th>Loker</th>
+                    <th>Nama Perusahaan</th>
+                    <th>Tanggal Loker</th>
+                    <th>Keterangan Loker</th>
+                    <th>Jenis Loker</th>
+                    <th>ID Wisuda</th>
                     <th>Aksi</th>
                 </tr>
                 </thead>
@@ -38,14 +37,13 @@
                 {% for obj in data %}
                 <tr>
                     <td>{{ loop.index }}</td>
-                    <td>{{obj.nama_awal}} {{ obj.nama_akhir }}</td>
-                    <td>{{obj.tgl_yudisium}}</td>
-                    <td>{{obj.tgl_wisuda}}</td>
-                    <td>{{obj.no_ijazah}}</td>
-                    <td>{{obj.judul_skripsi}}</td>
-                    <td>{{obj.ipk_lulus}}</td>
-                    <td>{{obj.bidang_kerja}}</td>
-                    <td>{{obj.perusahaan_kerja}}</td>
+                    <td>{{obj.id_loker}} {{ obj.id_loker }}</td>
+                    <td>{{obj.loker}}</td>
+                    <td>{{obj.nama_perusahaan}}</td>
+                    <td>{{obj.tgl_loker}}</td>
+                    <td>{{obj.ket_loker}}</td>
+                    <td>{{obj.jenis_loker}}</td>
+                    <td>{{obj.id_wisuda}}</td>
                     <td class="text-center align-middle">
                         <div class="btn-group" role="group" aria-label="Action buttons">
                             <a class="btn btn-info" href="/alumni_career_center/edit/{{obj.id_lulus}}">
