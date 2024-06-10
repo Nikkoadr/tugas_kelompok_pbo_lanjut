@@ -9,16 +9,28 @@
 <body>
     <div class="container">
         <h1 class="text-center"></h1>
-        <form action="/mahasiswa/store" method="POST">
+        <form action="/publikasi_dosen/store" method="POST">
             <div class="mb-3">
-                <label for="nim" class="form-label">NIM :</label>
-                <input name="nim" type="text" class="form-control" id="nim" >
+                <label for="id_publikasi_dosen" class="form-label">ID Publikasi Dosen :</label>
+                <input name="id_publikasi_dosen" type="text" class="form-control" id="id_publikasi_dosen" >
             </div>
             <div class="mb-3">
-                <label for="nama" class="form-label">Nama :</label>
-                <input name="nama" type="text" class="form-control" id="nama" >
+                <label for="tgl_publikasi" class="form-label">Tanggal Publikasi :</label>
+                <input name="tgl_publikasi" type="text" class="form-control" id="tgl_publikasi" >
             </div>
-            <a class="btn btn-secondary float-end ms-2" href="/mahasiswa" >Kembali</a>
+            <div class="mb-3">
+                <label for="judul" class="form-label">Judul :</label>
+                <input name="judul" type="text" class="form-control" id="judul" >
+            </div>
+            <div class="mb-3">
+                <label for="jenis_publikasi" class="form-label">Jenis Publikasi :</label>
+                <input name="jenis_publikasi" type="text" class="form-control" id="Jenis_publikasi" >
+            </div>
+            <div class="mb-3">
+                <label for="id_dosen" class="form-label">ID Dosen :</label>
+                <input name="id_dosen" type="text" class="form-control" id="id_dosen" >
+            </div>
+            <a class="btn btn-secondary float-end ms-2" href="/publikasi_dosen" >Kembali</a>
             <input type="submit" value="Tambah" class="btn btn-primary float-end">
             </form>
     </div>
