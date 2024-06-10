@@ -9,7 +9,7 @@
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Edit Alumni Career Center</h1>
-        <form action="/data_alumni/update/{{ obj.id_lulus }}" method="POST">
+        <form action="/alumni_career_center/update/{{ obj.id_lulus }}" method="POST">
             <div class="mb-3">
                 <label for="ipk_lulus" class="form-label">IPK Lulus</label>
                 <input id="ipk_lulus" name="ipk_lulus" type="text" class="form-control" value="{{ obj.ipk_lulus }}" required>
@@ -26,7 +26,7 @@
                 <label for="perusahaan_kerja" class="form-label">Perusahaan kerja</label>
                 <input id="perusahaan_kerja" name="perusahaan_kerja" type="text" class="form-control" value="{{ obj.perusahaan_kerja }}" required>
             </div>
-            <a href="/data_alumni" class="btn btn-secondary float-end ms-2">Batal</a>
+            <a href="/alumni_career_center" class="btn btn-secondary float-end ms-2">Batal</a>
             <input type="submit" value="Edit" class="btn btn-primary float-end">
         </form>
     </div>

@@ -18,7 +18,7 @@ class Manajemen_wisudaView:
         post = request.form
         obj.tgl_wisuda = post['tgl_wisuda']
         Manajemen_wisudaModel().store(obj)
-        flash('Data berhasil ditambahkan', 'success')
+        flash('Data Berhasil Ditambahkan', 'success')
         return redirect('/manajemen_wisuda')
     
     @staticmethod
@@ -35,7 +35,7 @@ class Manajemen_wisudaView:
             obj.id_wisuda = post['id_wisuda']
             obj.tgl_wisuda = post['tgl_wisuda']
             Manajemen_wisudaModel().update(id, obj)
-            flash('Data berhasil diperbarui', 'success')
+            flash('Data Berhasil Diperbarui', 'success')
             return redirect('/manajemen_wisuda')
         else:
             return redirect(request.referrer)
@@ -45,7 +45,7 @@ class Manajemen_wisudaView:
         data = Manajemen_wisudaModel().find(id)
         if data:
             Manajemen_wisudaModel().delete(id)
-            flash('Data berhasil dihapus', 'success')
+            flash('Data Berhasil Dihapus', 'success')
             return redirect ('/manajemen_wisuda')
         else: 
             return redirect(request.referrer)

@@ -35,8 +35,8 @@ class Tugas_akhir_mahasiswaView:
             obj = Tugas_akhir_mahasiswaModel()
             obj.nim = post['nim']
             obj.nama = post['nama']
-            Data_alumniaModel().update(id, obj)
-            flash('Data berhasil diperbarui', 'success')
+            Tugas_akhir_mahasiswaModel().update(id, obj)
+            flash('Data Berhasil Diperbarui', 'success')
             return redirect('/tugas_akhir_mahasiswa')
         else:
             return redirect(request.referrer)

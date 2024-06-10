@@ -15,7 +15,7 @@ class Data_alumniView:
     @staticmethod
     def wisuda():
         data = Data_alumniModel().wisuda()
-        return render_template('wisudah.html', data=data)
+        return render_template('wisuda.html', data=data)
     
     @staticmethod
     def mahasiswa(id):
@@ -43,7 +43,7 @@ class Data_alumniView:
         obj.no_ijazah = post['no_ijazah']
         obj.perusahaan_kerja = post['perusahaan_kerja']
         Data_alumniModel().store(obj)
-        flash('Data berhasil ditambahkan', 'success')
+        flash('Data Berhasil Ditambahkan', 'success')
         return redirect('/data_alumni')
     
     @staticmethod
@@ -62,7 +62,7 @@ class Data_alumniView:
             obj.no_ijazah = post['no_ijazah']
             obj.perusahaan_kerja = post['perusahaan_kerja']
             Data_alumniModel().update(id, obj)
-            flash('Data berhasil diperbarui', 'success')
+            flash('Data Berhasil Diperbaharui', 'success')
             return redirect('/data_alumni')
         else:
             return redirect(request.referrer)
@@ -72,7 +72,7 @@ class Data_alumniView:
         data = Data_alumniModel().find(id)
         if data:
             Data_alumniModel().delete(id)
-            flash('Data berhasil dihapus', 'success')
+            flash('Data Berhasil Dihapus', 'success')
             return redirect ('/data_alumni')
         else: 
             return redirect(request.referrer)

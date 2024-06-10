@@ -16,14 +16,13 @@ class Alumni_career_centerView:
     def store():
         obj = Alumni_career_centerModel()
         post = request.form
-        obj.id_mahasiswa = post['id_mahasiswa']
+        obj.id_loker = post['id_loker']
+        obj.loker = post['loker']
+        obj.nama_perusahaan = post['nama_perusahaan']
+        obj.tgl_loker = post['tgl_loker']
+        obj.ket_loker = post['ket_loker']
+        obj.jenis_loker = post['jenis_loker']
         obj.id_wisuda = post['id_wisuda']
-        obj.tgl_yudisium = post['tgl_yudisium']
-        obj.ipk_lulus = post['ipk_lulus']
-        obj.judul_skripsi = post['judul_skripsi']
-        obj.bidang_kerja = post['bidang_kerja']
-        obj.no_ijazah = post['no_ijazah']
-        obj.perusahaan_kerja = post['perusahaan_kerja']
         Alumni_career_centerModel().store(obj)
         flash('Data Berhasil Ditambahkan', 'success')
         return redirect('/alumni_career_center')
@@ -39,14 +38,13 @@ class Alumni_career_centerView:
         if data:
             post = request.form
             obj = Alumni_career_centerModel()
-            obj.id_mahasiswa = post['id_mahasiswa']
+            obj.id_loker = post['id_loker']
+            obj.loker = post['loker']
+            obj.nama_perusahaan = post['nama_perusahaan']
+            obj.tgl_loker = post['tgl_loker']
+            obj.ket_loker = post['ket_loker']
+            obj.jenis_loker = post['jenis_loker']
             obj.id_wisuda = post['id_wisuda']
-            obj.tgl_yudisium = post['tgl_yudisium']
-            obj.ipk_lulus = post['ipk_lulus']
-            obj.judul_skripsi = post['judul_skripsi']
-            obj.bidang_kerja = post['bidang_kerja']
-            obj.no_ijazah = post['no_ijazah']
-            obj.perusahaan_kerja = post['perusahaan_kerja']
             Alumni_career_centerModel().update(id, obj)
             flash('Data Berhasil Diperbaharui', 'success')
             return redirect('/alumni_career_center')
