@@ -129,11 +129,11 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`id_dosen`, `nidn`, `id_user`) VALUES
-(1, '123456789', 1);
-(2, '50123', 2);
-(3, '50124', 9);
-(4, '50134', 10);
-(5, '50234', 11);
+(1, '123456799', 1),
+(2, '123456789', 2),
+(3, '123456769', 9),
+(4, '123456729', 10),
+(5, '123456749', 11);
 
 -- --------------------------------------------------------
 
@@ -551,10 +551,21 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id_mahasiswa`, `id_user`, `id_progdi`, `id_thn_akademik`, `id_kelas`, `id_waktu_kuliah`, `id_jenis_pendaftaran`, `sekolah_asal`) VALUES
-(1, 3, 1, 1, 1, 1, 1, 'SMA X'),
-(2, 4, 3, 2, 2, 2, 2, 'SMA Y'),
-(3, 5, 3, 2, 2, 2, 2, 'SMA Y'),
-(4, 6, 3, 2, 2, 2, 2, 'SMA Y');
+(1, 3, 1, 1, 1, 1, 1, 'SMK Muhammadiyah Kandanghaur'),
+(2, 4, 3, 2, 2, 2, 2, 'SMAN 1 Losarang'),
+(3, 5, 3, 2, 2, 2, 2, 'SMKN 1 Losarang'),
+(4, 6, 3, 2, 2, 2, 2, 'SMAN 50 Bandang'),
+(5, 7, 3, 2, 2, 2, 2, 'SMAN 20 Jakarta'),
+(6, 8, 3, 2, 2, 2, 2, 'SMAK 40 Bandang'),
+(7, 12, 3, 2, 2, 2, 2, 'SMAN 3 Aceh'),
+(8, 13, 3, 2, 2, 2, 2, 'SMAN 80 Borneo'),
+(9, 14, 3, 2, 2, 2, 2, 'MA Balikpapan'),
+(10, 15, 3, 2, 2, 2, 2, 'SMK Binabangsa'),
+(11, 16, 3, 2, 2, 2, 2, 'SMAN 5 Makassar'),
+(12, 17, 3, 2, 2, 2, 2, 'SMAN 7 Papua'),
+(13, 18, 3, 2, 2, 2, 2, 'SMKN 5 Banyuwangi'),
+(14, 19, 3, 2, 2, 2, 2, 'SMAN 1 palembang'),
+(15, 20, 3, 2, 2, 2, 2, 'SMK 55 Bali');
 
 -- --------------------------------------------------------
 
@@ -960,20 +971,20 @@ INSERT INTO `user` (`id_user`, `gelar_depan`, `nama_awal`, `nama_akhir`, `gelar_
 (3, NULL, 'Joko', 'Susilo', NULL, 'joko@example.com', 'password123', 'Surabaya', '1990-12-25', 'Jl. Pahlawan No. 15', 1),
 (4, NULL, 'Indah', 'Lestari', NULL, 'indah@example.com', 'password123', 'indramyau', '2014-06-11', 'bandung', 2),
 (5, NULL, 'Lukman', 'Hakim', NULL, 'lukman@example.com', 'password123', 'Jakarta', '2014-06-17', 'Bandung', 1),
-(6, NULL, 'Nani', 'Supryani', NULL, 'nani@example.com', 'password123', 'Indramayu', '2014-05-22', 'Indramayu', 2);
-(7, NULL, 'Hesti', 'Purwadinata', NULL, 'hesti@example.com', 'password123', 'Indramayu', '2014-06-22', 'Indramayu', 2);
-(8, NULL, 'Kiki', 'Saputi', NULL, 'kiki@example.com', 'password123', 'Indramayu', '2014-05-22', 'Bandung', 2);
-(9, NULL, 'Andre', 'Taulani','M.M', 'andre@example.com', 'password123', 'Indramayu', '2014-02-22', 'Jakarta', 1);
-(10, NULL, 'Andika', 'Pratama','M.T', 'andika@example.com', 'password123', 'Indramayu', '1981-02-22', 'Jakarta', 1);
-(11, NULL, 'Usi', 'Pratama','M.Kom', 'usi@example.com', 'password123', 'Bandung', '1981-03-22', 'Jakarta', 2);
-(12, NULL, 'Windi', 'Sari', NULL, 'windi@example.com', 'password123', 'Semarang', '1991-03-22', 'Semarang', 2);
-(13, NULL, 'Gisela', 'Anastesi', NULL, 'gisel@example.com', 'password123', 'Badung', '1990-03-06', 'Badung', 2);
-(14, NULL, 'Vina', 'Ningsih', NULL, 'vina@example.com', 'password123', 'Cirebon', '1996-03-06', 'Cirebon', 2);
-(15, NULL, 'Trisno', 'Sanjaya', NULL, 'trsino@example.com', 'password123', 'Indrmayu', '2008-03-06', 'Indramayu', 1);
-(16, NULL, 'jamal', 'Udin', NULL, 'jamal@example.com', 'password123', 'Indrmayu', '2001-04-06', 'Indramayu', 1);
-(17, NULL, 'Nikko', 'Adrian', NULL, 'nikko@example.com', 'password123', 'Indrmayu', '1996-02-29', 'Indramayu', 1);
-(18, NULL, 'Andi', 'Rusnandi', NULL, 'andirus@example.com', 'password123', 'Indrmayu', '1986-02-29', 'majalengka', 1);
-(19, NULL, 'Riskun', 'Salam', NULL, 'riskun@example.com', 'password123', 'Indrmayu', '1998-05-29', 'Indramayu', 1);
+(6, NULL, 'Nani', 'Supryani', NULL, 'nani@example.com', 'password123', 'Indramayu', '2014-05-22', 'Indramayu', 2),
+(7, NULL, 'Hesti', 'Purwadinata', NULL, 'hesti@example.com', 'password123', 'Indramayu', '2014-06-22', 'Indramayu', 2),
+(8, NULL, 'Kiki', 'Saputi', NULL, 'kiki@example.com', 'password123', 'Indramayu', '2014-05-22', 'Bandung', 2),
+(9, NULL, 'Andre', 'Taulani','M.M', 'andre@example.com', 'password123', 'Indramayu', '2014-02-22', 'Jakarta', 1),
+(10, NULL, 'Andika', 'Pratama','M.T', 'andika@example.com', 'password123', 'Indramayu', '1981-02-22', 'Jakarta', 1),
+(11, NULL, 'Usi', 'Pratama','M.Kom', 'usi@example.com', 'password123', 'Bandung', '1981-03-22', 'Jakarta', 2),
+(12, NULL, 'Windi', 'Sari', NULL, 'windi@example.com', 'password123', 'Semarang', '1991-03-22', 'Semarang', 2),
+(13, NULL, 'Gisela', 'Anastesi', NULL, 'gisel@example.com', 'password123', 'Badung', '1990-03-06', 'Badung', 2),
+(14, NULL, 'Vina', 'Ningsih', NULL, 'vina@example.com', 'password123', 'Cirebon', '1996-03-06', 'Cirebon', 2),
+(15, NULL, 'Trisno', 'Sanjaya', NULL, 'trsino@example.com', 'password123', 'Indrmayu', '2008-03-06', 'Indramayu', 1),
+(16, NULL, 'jamal', 'Udin', NULL, 'jamal@example.com', 'password123', 'Indrmayu', '2001-04-06', 'Indramayu', 1),
+(17, NULL, 'Nikko', 'Adrian', NULL, 'nikko@example.com', 'password123', 'Indrmayu', '1996-02-29', 'Indramayu', 1),
+(18, NULL, 'Andi', 'Rusnandi', NULL, 'andirus@example.com', 'password123', 'Indrmayu', '1986-02-29', 'majalengka', 1),
+(19, NULL, 'Riskun', 'Salam', NULL, 'riskun@example.com', 'password123', 'Indrmayu', '1998-05-29', 'Indramayu', 1),
 (20, NULL, 'Godogan', 'Boled', NULL, 'boled@example.com', 'password123', 'Indrmayu', '1945-07-02', 'Indramayu', 1);
 
 -- --------------------------------------------------------
