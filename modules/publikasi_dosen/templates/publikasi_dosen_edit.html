@@ -8,17 +8,29 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Edit Data Mahasiswa</h1>
-        <form action="/data_alumni/update/{{ obj.id_lulus }}" method="POST">
+        <h1 class="text-center">Edit Publikasi Dosen</h1>
+        <form action="/publikasi_dosen/update/{{ obj.id_publikasi_dosen }}" method="POST">
             <div class="mb-3">
-                <label for="nim" class="form-label">NIM</label>
-                <input id="nim" name="nim" type="text" class="form-control" value="{{ obj.nim }}" required>
+                <label for="id_publikasi_dosen" class="form-label">ID Publikasi</label>
+                <input id="id_publikasi_dosen" name="id_publikasi_dosen" type="text" class="form-control" value="{{ obj.id_publikasi_dosen }}" required>
             </div>
             <div class="mb-3">
-                <label for="nama" class="form-label">Nama</label>
-                <input id="nama" name="nama" type="text" class="form-control" value="{{ obj.nama }}" required>
+                <label for="tgl_publikasi" class="form-label">Tanggal Publikasi</label>
+                <input id="tgl_publikasi" name="tgl_publikasi" type="date" class="form-control" value="{{ obj.tgl_publikasi }}" required>
             </div>
-            <a href="/id_lulus" class="btn btn-secondary float-end ms-2">Batal</a>
+            <div class="mb-3">
+                <label for="judul" class="form-label">Judul</label>
+                <input id="judul" name="judul" type="text" class="form-control" value="{{ obj.judul }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="jenis_publikasi" class="form-label">Jenis Publikasi</label>
+                <input id="jenis_publikasi" name="jenis_publikasi" type="text" class="form-control" value="{{ obj.jenis_publikasi }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="id_dosen" class="form-label">ID Dosen</label>
+                <input id="id_dosen" name="id_dosen" type="text" class="form-control" value="{{ obj.id_dosen }}" required>
+            </div>
+            <a href="/id_publikasi_dosen" class="btn btn-secondary float-end ms-2">Batal</a>
             <input type="submit" value="Edit" class="btn btn-primary float-end">
         </form>
     </div>

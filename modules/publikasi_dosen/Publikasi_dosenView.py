@@ -16,11 +16,14 @@ class Publikasi_dosenView:
     def store():
         obj = Publikasi_dosenModel()
         post = request.form
-        obj.nim = post['nim']
-        obj.nama = post['nama']
+        obj.id_publikasi_dosen = post['id_publikasi_dosen']
+        obj.tgl_publikasi = post['tgl_publikasi']
+        obj.judul = post['judul']
+        obj.jenis_publikasi = post['jenis_publikasi']
+        obj.id_dosen = post['id_dosen']
         Publikasi_dosenModel().store(obj)
-        flash('Data berhasil ditambahkan', 'success')
-        return redirect('/ta_mahasiswa')
+        flash('Data Berhasil Ditambahkan', 'success')
+        return redirect('/publikasi_dosen')
     
     @staticmethod
     def edit(id):
@@ -33,11 +36,14 @@ class Publikasi_dosenView:
         if data:
             post = request.form
             obj = Publikasi_dosenModel()
-            obj.nim = post['nim']
-            obj.nama = post['nama']
-            Data_alumniaModel().update(id, obj)
-            flash('Data berhasil diperbarui', 'success')
-            return redirect('/data_alumni')
+            obj.id_publikasi_dosen = post['id_publikasi_dosen']
+            obj.tgl_publikasi = post['tgl_publikasi']
+            obj.judul = post['judul']
+            obj.jenis_publikasi = post['jenis_publikasi']
+            obj.id_dosen = post['id_dosen']
+            Publikasi_dosenModel().update(id, obj)
+            flash('Data Berhasil Diperbarui', 'success')
+            return redirect('/publikasi_dosen')
         else:
             return redirect(request.referrer)
         
@@ -46,7 +52,7 @@ class Publikasi_dosenView:
         data = Publikasi_dosenModel().find(id)
         if data:
             Publikasi_dosenModel().delete(id)
-            flash('Data berhasil dihapus', 'success')
-            return redirect ('/data_alumni')
+            flash('Data Berhasil Dihapus', 'success')
+            return redirect ('/publikasi_dosen')
         else: 
             return redirect(request.referrer)
