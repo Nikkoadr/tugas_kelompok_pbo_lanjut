@@ -23,7 +23,6 @@
                 <thead>
                 <tr class="text-center">
                     <th>No</th>
-                    <th>ID Wisuda</th>
                     <th>Tanggal Wisuda</th>
                     <th>Aksi</th>
                 </tr>
@@ -32,7 +31,6 @@
                 {% for obj in data %}
                 <tr class="text-center">
                     <td>{{ loop.index }}</td>
-                    <td>{{obj.id_wisuda}}</td>
                     <td>{{obj.tgl_wisuda}}</td>
                     <td class="text-center align-middle">
                         <div class="btn-group" role="group" aria-label="Action buttons">

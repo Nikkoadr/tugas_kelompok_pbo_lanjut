@@ -27,13 +27,13 @@
                     <th>Tanggal Publikasi</th>
                     <th>Judul Publikasi</th>
                     <th>Jenis Publikasi</th>
-                    <th>ID Dosen</th>
+                    <th>Nama Dosen</th>
                     <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for obj in data %}
-                <tr>
+                <tr class="text-center">
                     <td>{{ loop.index }}</td>
                     <td>{{obj.id_publikasi_dosen}}</td>
                     <td>{{obj.tgl_publikasi}}</td>

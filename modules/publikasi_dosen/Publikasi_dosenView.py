@@ -5,7 +5,7 @@ class Publikasi_dosenView:
     
     @staticmethod
     def index():
-        data = Publikasi_dosenModel().get_nama()
+        data = Publikasi_dosenModel().all()
         return render_template('publikasi_dosen_index.html',data=data) #jsonify(data)
     
     @staticmethod

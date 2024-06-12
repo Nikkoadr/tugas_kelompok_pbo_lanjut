@@ -23,21 +23,19 @@
                 <thead>
                 <tr class="text-center">
                     <th>No</th>
-                    <th>ID Loker</th>
                     <th>Loker</th>
                     <th>Nama Perusahaan</th>
                     <th>Tanggal Loker</th>
                     <th>Keterangan Loker</th>
                     <th>Jenis Loker</th>
-                    <th>ID Wisuda</th>
+                    <th>Tanggal Wisudah</th>
                     <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for obj in data %}
-                <tr>
+                <tr class="text-center">
                     <td>{{ loop.index }}</td>
-                    <td>{{obj.id_loker}}</td>
                     <td>{{obj.loker}}</td>
                     <td>{{obj.nama_perusahaan}}</td>
                     <td>{{obj.tgl_loker}}</td>
