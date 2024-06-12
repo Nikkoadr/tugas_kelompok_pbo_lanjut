@@ -11,10 +11,6 @@
         <h1 class="text-center">Edit Publikasi Dosen</h1>
         <form action="/publikasi_dosen/update/{{ obj.id_publikasi_dosen }}" method="POST">
             <div class="mb-3">
-                <label for="id_publikasi_dosen" class="form-label">ID Publikasi</label>
-                <input id="id_publikasi_dosen" name="id_publikasi_dosen" type="text" class="form-control" value="{{ obj.id_publikasi_dosen }}" required>
-            </div>
-            <div class="mb-3">
                 <label for="tgl_publikasi" class="form-label">Tanggal Publikasi</label>
                 <input id="tgl_publikasi" name="tgl_publikasi" type="date" class="form-control" value="{{ obj.tgl_publikasi }}" required>
             </div>
@@ -26,11 +22,7 @@
                 <label for="jenis_publikasi" class="form-label">Jenis Publikasi</label>
                 <input id="jenis_publikasi" name="jenis_publikasi" type="text" class="form-control" value="{{ obj.jenis_publikasi }}" required>
             </div>
-            <div class="mb-3">
-                <label for="id_dosen" class="form-label">ID Dosen</label>
-                <input id="id_dosen" name="id_dosen" type="text" class="form-control" value="{{ obj.id_dosen }}" required>
-            </div>
-            <a href="/id_publikasi_dosen" class="btn btn-secondary float-end ms-2">Batal</a>
+            <a href="/publikasi_dosen" class="btn btn-secondary float-end ms-2">Batal</a>
             <input type="submit" value="Edit" class="btn btn-primary float-end">
         </form>
     </div>

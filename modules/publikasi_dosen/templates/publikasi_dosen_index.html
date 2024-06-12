@@ -18,7 +18,7 @@
             <a class="btn btn-primary float-start m-1" href="/publikasi_dosen">Publikasi Dosen</a>
             <a class="btn btn-secondary float-start m-1" href="/manajemen_wisuda">Manajemen Wisuda</a>
             <a class="btn btn-secondary float-start m-1" href="/alumni_career_center">Alumni Career Center</a>
-            <a class="btn btn-success float-end" href="/publikasi_dosen/create">Tambah</a>
+            <a class="btn btn-success float-end" href="/publikasi_dosen/dosen">Tambah</a>
             <table class="table table-striped">
                 <thead>
                 <tr class="text-center">
@@ -39,7 +39,7 @@
                     <td>{{obj.tgl_publikasi}}</td>
                     <td>{{obj.judul}}</td>
                     <td>{{obj.jenis_publikasi}}</td>
-                    <td>{{obj.nama_dosen}}</td>
+                    <td>{{obj.nama_awal}} {{ obj.nama_akhir }}</td>
                     <td class="text-center align-middle">
                         <div class="btn-group" role="group" aria-label="Action buttons">
                             <a class="btn btn-info" href="/publikasi_dosen/edit/{{obj.id_publikasi_dosen}}">

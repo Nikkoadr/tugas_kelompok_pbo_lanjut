@@ -5,18 +5,26 @@ class Publikasi_dosenView:
     
     @staticmethod
     def index():
-        data = Publikasi_dosenModel().all()
+        data = Publikasi_dosenModel().publikasi_dosen_all()
         return render_template('publikasi_dosen_index.html',data=data) #jsonify(data)
     
     @staticmethod
+    def dosen():
+        data = Publikasi_dosenModel().get_dosen()
+        return render_template('dosen.html', data=data)
+
+    @staticmethod
     def create():
-        return render_template('publikasi_dosen_create.html')
+        id_dosen = request.form['id_dosen']
+        nidn = request.form['nidn']
+        nama_awal = request.form['nama_awal']
+        nama_akhir = request.form['nama_akhir']
+        return render_template('publikasi_dosen_create.html', id_dosen=id_dosen, nidn=nidn, nama_awal=nama_awal, nama_akhir=nama_akhir)
     
     @staticmethod
     def store():
         obj = Publikasi_dosenModel()
         post = request.form
-        obj.id_publikasi_dosen = post['id_publikasi_dosen']
         obj.tgl_publikasi = post['tgl_publikasi']
         obj.judul = post['judul']
         obj.jenis_publikasi = post['jenis_publikasi']
@@ -36,11 +44,9 @@ class Publikasi_dosenView:
         if data:
             post = request.form
             obj = Publikasi_dosenModel()
-            obj.id_publikasi_dosen = post['id_publikasi_dosen']
             obj.tgl_publikasi = post['tgl_publikasi']
             obj.judul = post['judul']
             obj.jenis_publikasi = post['jenis_publikasi']
-            obj.id_dosen = post['id_dosen']
             Publikasi_dosenModel().update(id, obj)
             flash('Data Berhasil Diperbarui', 'success')
             return redirect('/publikasi_dosen')

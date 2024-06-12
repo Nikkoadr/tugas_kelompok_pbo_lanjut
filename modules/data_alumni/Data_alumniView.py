@@ -7,10 +7,6 @@ class Data_alumniView:
     def index():
         data = Data_alumniModel().get_nama()
         return render_template('data_alumni_index.html',data=data) #jsonify(data)
-    
-    @staticmethod
-    def create():
-        return render_template('data_alumni_create.html')
         
     @staticmethod
     def wisuda():
