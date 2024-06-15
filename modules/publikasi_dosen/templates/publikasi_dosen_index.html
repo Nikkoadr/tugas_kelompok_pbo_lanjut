@@ -23,7 +23,6 @@
                 <thead>
                 <tr class="text-center">
                     <th>No</th>
-                    <th>ID Publikasi</th>
                     <th>Tanggal Publikasi</th>
                     <th>Judul Publikasi</th>
                     <th>Jenis Publikasi</th>
@@ -35,7 +34,6 @@
                 {% for obj in data %}
                 <tr class="text-center">
                     <td>{{ loop.index }}</td>
-                    <td>{{obj.id_publikasi_dosen}}</td>
                     <td>{{obj.tgl_publikasi}}</td>
                     <td>{{obj.judul}}</td>
                     <td>{{obj.jenis_publikasi}}</td>
