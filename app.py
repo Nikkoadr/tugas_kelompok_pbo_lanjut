@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import *
+from modules.auth.LoginRoute import app_login
 from modules.tugas_akhir_mahasiswa.Tugas_akhir_mahasiswaRoute import app_tugas_akhir_mahasiswa
 from modules.data_alumni.Data_alumniRoute import app_data_alumni
 from modules.publikasi_dosen.Publikasi_dosenRoute import app_publikasi_dosen
@@ -8,6 +9,7 @@ from modules.alumni_career_center.Alumni_career_centerRoute import app_alumni_ca
 app = Flask(__name__)
 app.secret_key = '12345'
 
+app.register_blueprint(app_login, url_prefix='/')
 app.register_blueprint(app_tugas_akhir_mahasiswa, url_prefix='/tugas_akhir_mahasiswa')
 app.register_blueprint(app_data_alumni, url_prefix='/data_alumni')
 app.register_blueprint(app_publikasi_dosen, url_prefix='/publikasi_dosen')
