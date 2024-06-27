@@ -37,7 +37,7 @@ class Alumni_career_centerView:
         if data:
             post = request.form
             obj = Alumni_career_centerModel()
-            obj.id_loker = post['id_loker']
+           
             obj.loker = post['loker']
             obj.nama_perusahaan = post['nama_perusahaan']
             obj.tgl_loker = post['tgl_loker']

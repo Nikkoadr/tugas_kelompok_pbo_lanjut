@@ -202,13 +202,12 @@
                             <thead>
                             <tr class="text-center">
                                 <th>No</th>
-                                <th>Id Loker</th>
                                 <th>Lowongan Kerja</th>
                                 <th>Nama Perusahaan</th>
                                 <th>Tanggal Loker</th>
                                 <th>Keterangan Loker</th>
                                 <th>Jenis Loker</th>
-                                <th>Id Wisuda/th>
+                                <th>Tanggal Wisuda</th>
                                 <th>Aksi</th>
                             </tr>
                             </thead>
@@ -216,14 +215,12 @@
                             {% for obj in data %}
                             <tr class="text-center">
                                 <td>{{ loop.index }}</td>
-                                <td>{{obj.nama_awal}} {{ obj.nama_akhir }}</td>
-                                <td>{{obj.id_lokel}}</td>
                                 <td>{{obj.loker}}</td>
                                 <td>{{obj.nama_perusahaan}}</td>
                                 <td>{{obj.tgl_loker}}</td>
                                 <td>{{obj.ket_loker}}</td>
                                 <td>{{obj.jenis_loker}}</td>
-                                <td>{{obj.id_wisuda}}</td>
+                                <td>{{obj.tanggal_wisuda}}</td>
                                 <td class="text-center align-middle">
                                     <div class="btn-group" role="group" aria-label="Action buttons">
                                         <a class="btn btn-info" href="/alumni_career_center/edit/{{obj.id_loker}}">
