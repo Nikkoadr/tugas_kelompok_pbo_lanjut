@@ -92,7 +92,7 @@
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="/alumni_career_center" class="nav-link">
+                <a href="/alumni_career_center" class="nav-link active">
                 <i class="nav-icon fas fa-briefcase"></i>
                 <p>
                     Career center
@@ -100,7 +100,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/data_alumni" class="nav-link active">
+                <a href="/data_alumni" class="nav-link">
                 <i class="nav-icon fas fa-address-book"></i>
                 <p>
                     Data Alumni
@@ -195,14 +195,7 @@
                     <div class="card">
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <h5>Nama Mahasiswa : {{ data.nama_awal }} {{ data.nama_akhir }}</h5>
                         <form action="/alumni_career_center/store" method="POST">
-                                <input id="id_mahasiswa" name="id_wisuda" type="hidden" value="{{ id_wisuda }}" required>
-                                <input id="id_mahasiswa" name="id_mahasiswa" type="hidden" value="{{ data.id_mahasiswa }}" required>
-                            <div class="mb-3">
-                                <label for="id_loker" class="form-label">Id Loker</label>
-                                <input id="id_loker" name="id_loker" type="text" class="form-control"  required>
-                            </div>
                             <div class="mb-3">
                                 <label for="loker" class="form-label">Loker</label>
                                 <input id="loker" name="loker" type="text" class="form-control"  required>
@@ -213,7 +206,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="tgl_loker" class="form-label">Tanggal Loker</label>
-                                <input id="tgl_loker" name="tgl_loker" type="text" class="form-control" required>
+                                <input id="tgl_loker" name="tgl_loker" type="date" class="form-control" required>
                             </div>
                             <div class="mb-3">
                                 <label for="ket_loker" class="form-label">Keterangan Loker</label>

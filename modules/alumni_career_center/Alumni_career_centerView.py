@@ -16,7 +16,6 @@ class Alumni_career_centerView:
     def store():
         obj = Alumni_career_centerModel()
         post = request.form
-        obj.id_loker = post['id_loker']
         obj.loker = post['loker']
         obj.nama_perusahaan = post['nama_perusahaan']
         obj.tgl_loker = post['tgl_loker']
