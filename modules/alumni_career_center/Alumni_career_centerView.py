@@ -5,7 +5,7 @@ class Alumni_career_centerView:
     
     @staticmethod
     def index():
-        data = Alumni_career_centerModel().all()
+        data = Alumni_career_centerModel().get_data()
         return render_template('alumni_career_center_index.html',data=data)
     
     @staticmethod
@@ -37,7 +37,6 @@ class Alumni_career_centerView:
         if data:
             post = request.form
             obj = Alumni_career_centerModel()
-           
             obj.loker = post['loker']
             obj.nama_perusahaan = post['nama_perusahaan']
             obj.tgl_loker = post['tgl_loker']
