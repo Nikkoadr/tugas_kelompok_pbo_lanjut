@@ -6,7 +6,7 @@ class Alumni_career_centerView:
     @staticmethod
     def index():
         data = Alumni_career_centerModel().all()
-        return render_template('alumni_career_center_index.html',data=data) #jsonify(data)
+        return render_template('alumni_career_center_index.html',data=data)
     
     @staticmethod
     def create():
