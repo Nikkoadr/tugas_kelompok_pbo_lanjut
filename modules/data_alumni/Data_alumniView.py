@@ -1,25 +1,30 @@
 from flask import *
 from modules.data_alumni.Data_alumniModel import *
+from utils import login_required
 
 class Data_alumniView:
     
     @staticmethod
+    @login_required
     def index():
         data = Data_alumniModel().get_nama()
         return render_template('data_alumni_index.html',data=data) #jsonify(data)
         
     @staticmethod
+    @login_required
     def wisuda():
         data = Data_alumniModel().wisuda()
         return render_template('wisuda.html', data=data)
     
     @staticmethod
+    @login_required
     def mahasiswa(id):
         data_wisuda = Data_alumniModel().cari_wisuda(id)
         data = Data_alumniModel().mahasiswa()
         return render_template('mahasiswa.html', data=data, data_wisuda=data_wisuda)
     
     @staticmethod
+    @login_required
     def tambah_alumni():
         id_wisuda = request.form['id_wisuda']
         id_mahasiswa = request.form['id_mahasiswa']
