@@ -211,13 +211,10 @@
                             <tr class="text-center">
                                 <th>No</th>
                                 <th>Nama Alumni</th>
-                                <th>Tanggal Yudisium</th>
-                                <th>Tanggal Wisuda</th>
+                                <th>Tanggal Wisudah</th>
                                 <th>No Ijazah</th>
                                 <th>Judul Skripsi</th>
                                 <th>IPK Lulus</th>
-                                <th>Bidang Kerja</th>
-                                <th>Perusahaan Kerja</th>
                                 <th>Aksi</th>
                             </tr>
                             </thead>
@@ -226,13 +223,10 @@
                             <tr class="text-center">
                                 <td>{{ loop.index }}</td>
                                 <td>{{obj.nama_awal}} {{ obj.nama_akhir }}</td>
-                                <td>{{obj.tgl_yudisium}}</td>
                                 <td>{{obj.tgl_wisuda}}</td>
                                 <td>{{obj.no_ijazah}}</td>
                                 <td>{{obj.judul_skripsi}}</td>
                                 <td>{{obj.ipk_lulus}}</td>
-                                <td>{{obj.bidang_kerja}}</td>
-                                <td>{{obj.perusahaan_kerja}}</td>
                                 <td class="text-center align-middle">
                                     <div class="btn-group" role="group" aria-label="Action buttons">
                                         <a class="btn btn-info" href="/data_alumni/edit/{{obj.id_lulus}}">

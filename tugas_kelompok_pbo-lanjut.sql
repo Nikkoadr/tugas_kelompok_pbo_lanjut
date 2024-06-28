@@ -30,6 +30,10 @@ SET time_zone = "+00:00";
 CREATE TABLE `alumni` (
   `id_alumni` int NOT NULL,
   `id_mahasiswa` int DEFAULT NULL,
+  `id_wisuda` int DEFAULT NULL,
+  `no_ijazah` varchar(255) DEFAULT NULL,
+  `judul_skripsi` varchar(255) DEFAULT NULL,
+  `ipk_lulus` varchar(255) DEFAULT NULL,
   `pekerjaan` varchar(255) DEFAULT NULL,
   `no_hp` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=armscii8;
@@ -38,9 +42,9 @@ CREATE TABLE `alumni` (
 -- Dumping data untuk tabel `alumni`
 --
 
-INSERT INTO `alumni` (`id_alumni`, `id_mahasiswa`, `pekerjaan`, `no_hp`) VALUES
-(1, 1, 'Programmer', '081234567890'),
-(2, 2, 'Engineer', '081234567891');
+INSERT INTO `alumni` (`id_alumni`, `id_mahasiswa`,`id_wisuda`,`no_ijazah`, `judul_skripsi`,`ipk_lulus`, `pekerjaan`, `no_hp`) VALUES
+(1, 1, 1,'1234','Judul Skripsi1','3.8', 'Programmer', '081234567890'),
+(2, 2, 1, '5678', 'Judul Skripsi2','3.6','Engineer', '081234567891');
 
 -- --------------------------------------------------------
 

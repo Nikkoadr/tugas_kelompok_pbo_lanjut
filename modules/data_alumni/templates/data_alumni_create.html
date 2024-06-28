@@ -199,10 +199,7 @@
                         <form action="/data_alumni/store" method="POST">
                                 <input id="id_mahasiswa" name="id_wisuda" type="hidden" value="{{ id_wisuda }}" required>
                                 <input id="id_mahasiswa" name="id_mahasiswa" type="hidden" value="{{ data.id_mahasiswa }}" required>
-                            <div class="mb-3">
-                                <label for="tgl_yudisium" class="form-label">Tanggal Yudisium</label>
-                                <input id="tgl_yudisium" name="tgl_yudisium" type="date" class="form-control"  required>
-                            </div>
+
                             <div class="mb-3">
                                 <label for="no_ijazah" class="form-label">Nomor ijazah</label>
                                 <input id="no_ijazah" name="no_ijazah" type="text" class="form-control"  required>
@@ -216,12 +213,12 @@
                                 <input id="ipk_lulus" name="ipk_lulus" type="text" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <label for="bidang_kerja" class="form-label">Bidang Kerja</label>
-                                <input id="bidang_kerja" name="bidang_kerja" type="text" class="form-control" required>
+                                <label for="pekerjaan" class="form-label">Pekerjaan</label>
+                                <input id="pekerjaan" name="pekerjaan" type="text" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <label for="perusahaan_kerja" class="form-label">Perusaahan Kerja</label>
-                                <input id="perusahaan_kerja" name="perusahaan_kerja" type="text" class="form-control" required>
+                                <label for="no_hp" class="form-label">Nomor HP</label>
+                                <input id="no_hp" name="no_hp" type="text" class="form-control" required>
                             </div>
                             <a class="btn btn-secondary float-end ms-2" href="/data_alumni" >Kembali</a>
                             <input type="submit" value="Tambah" class="btn btn-primary float-end">

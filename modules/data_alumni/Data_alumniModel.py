@@ -11,15 +11,14 @@ class Data_alumniModel(CoreModel):
         cursor = connection.cursor()
         query = """
                     SELECT
-                        alumni.id_lulus,
-                        alumni.tgl_yudisium,
-                        alumni.no_ijazah,
+                        alumni.id_alumni,
                         alumni.judul_skripsi, 
                         alumni.ipk_lulus,
                         alumni.id_wisuda,
                         alumni.id_mahasiswa,
-                        alumni.bidang_kerja, 
-                        alumni.perusahaan_kerja,
+                        alumni.no_ijazah,
+                        alumni.pekerjaan, 
+                        alumni.no_hp,
                         user.nama_awal,
                         user.nama_akhir,
                         wisuda.tgl_wisuda
@@ -81,7 +80,7 @@ class Data_alumniModel(CoreModel):
                         mahasiswa.id_progdi, 
                         user.nama_awal, 
                         user.nama_akhir,
-                        program_studi.program_studi
+                        program_studi.progdi
                     FROM 
                         mahasiswa
                     JOIN 

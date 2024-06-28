@@ -37,12 +37,11 @@ class Data_alumniView:
         post = request.form
         obj.id_mahasiswa = post['id_mahasiswa']
         obj.id_wisuda = post['id_wisuda']
-        obj.tgl_yudisium = post['tgl_yudisium']
         obj.ipk_lulus = post['ipk_lulus']
         obj.judul_skripsi = post['judul_skripsi']
-        obj.bidang_kerja = post['bidang_kerja']
         obj.no_ijazah = post['no_ijazah']
-        obj.perusahaan_kerja = post['perusahaan_kerja']
+        obj.pekerjaan = post['pekerjaan']
+        obj.no_hp = post['no_hp']
         Data_alumniModel().store(obj)
         flash('Data Berhasil Ditambahkan', 'success')
         return redirect('/data_alumni')
