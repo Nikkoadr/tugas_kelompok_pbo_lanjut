@@ -2,7 +2,7 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Edit Career Center</title>
+    <title>Admin</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -109,13 +109,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="/alumni_career_center" class="nav-link active">
+                    <a href="/alumni_career_center" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Data Loker</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/alumni_career_center/data_pelamar" class="nav-link">
+                    <a href="/data_pelamar" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Data Pelamar</p>
                     </a>
@@ -197,13 +197,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Edit Career Center</h1>
+                    <h1>Career Center</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item">Career Center</li>
-                    <li class="breadcrumb-item active">Edit</li>
+                    <li class="breadcrumb-item active">Career Center</li>
                     </ol>
                 </div>
                 </div>
@@ -219,34 +218,26 @@
                     <div class="card">
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="/alumni_career_center/update/{{ obj.id_lowongan }}" method="POST">
+                        <form action="/alumni_career_center/update_data_pelamar/{{ data.id_pelamar }}" method="POST">
                             <div class="mb-3">
-                                <label for="posisi" class="form-label">Posisi:</label>
-                                <input id="posisi" name="posisi" type="text" class="form-control" value="{{ obj.posisi }}" required>
+                                <label for="nama" class="form-label">Nama:</label>
+                                <input id="nama" name="nama" type="text" class="form-control" value="{{ data.nama }}" required>
                             </div>
                             <div class="mb-3">
-                                <label for="perusahaan" class="form-label">Perusahaan:</label>
-                                <input id="perusahaan" name="perusahaan" type="text" class="form-control" value="{{ obj.perusahaan }}" required>
+                                <label for="email" class="form-label">Email:</label>
+                                <input id="email" name="email" type="text" class="form-control" value="{{ data.email }}" required>
                             </div>
                             <div class="mb-3">
-                                <label for="lokasi" class="form-label">Lokasi:</label>
-                                <input id="lokasi" name="lokasi" type="text" class="form-control" value="{{ obj.lokasi }}"  required>
+                                <label for="no_hp" class="form-label">No HP:</label>
+                                <input id="no_hp" name="no_hp" type="text" class="form-control" value="{{ data.no_hp }}"  required>
                             </div>
                             <div class="mb-3">
-                                <label for="deskripsi" class="form-label">Deskripsi:</label>
-                                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="4" cols="50">{{ obj.deskripsi }}</textarea>
+                                <label for="tanggal_melamar" class="form-label">Tanggal Melamar:</label>
+                                <input id="tanggal_melamar" name="tanggal_melamar" type="date" class="form-control" value="{{ data.tanggal_melamar }}" required>
                             </div>
                             <div class="mb-3">
-                                <label for="kualifikasi" class="form-label">Kualifikasi:</label>
-                                <textarea class="form-control" id="kualifikasi" name="kualifikasi" rows="4" cols="50">{{ obj.kualifikasi }}</textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="tanggal_buka" class="form-label">Tanggal Buka:</label>
-                                <input id="tanggal_buka" name="tanggal_buka" type="date" class="form-control" value="{{ obj.tanggal_buka }}" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="tanggal_tutup" class="form-label">Tanggal Tutup:</label>
-                                <input id="tanggal_tutup" name="tanggal_tutup" type="date" class="form-control" value="{{ obj.tanggal_buka }}" required>
+                                <label for="status" class="form-label">Status:</label>
+                                <input id="status" name="status" type="text" class="form-control" value="{{ data.status }}" required>
                             </div>
                             <a class="btn btn-secondary float-end ms-2" href="/alumni_career_center" >Kembali</a>
                             <input type="submit" value="Tambah" class="btn btn-primary float-end">

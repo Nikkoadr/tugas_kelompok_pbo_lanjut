@@ -2,7 +2,7 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin</title>
+    <title>Tambah Career Center</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -92,12 +92,35 @@
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="/alumni_career_center" class="nav-link active">
-                <i class="nav-icon fas fa-briefcase"></i>
+                <a href="/home" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
-                    Career center
+                    Home
                 </p>
                 </a>
+            </li>
+            <li class="nav-item menu-open">
+                <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-briefcase"></i>
+                <p>
+                    Career Center
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+                </a>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="/alumni_career_center" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Data Loker</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/alumni_career_center/data_pelamar" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Data Pelamar</p>
+                    </a>
+                </li>
+                </ul>
             </li>
             <li class="nav-item">
                 <a href="/data_alumni" class="nav-link">
@@ -174,12 +197,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Career Center</h1>
+                    <h1>Tambah Career Center</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Career Center</li>
+                    <li class="breadcrumb-item">Career Center</li>
+                    <li class="breadcrumb-item active">Tambah</li>
                     </ol>
                 </div>
                 </div>
@@ -197,28 +221,34 @@
                     <div class="card-body">
                         <form action="/alumni_career_center/store" method="POST">
                             <div class="mb-3">
-                                <label for="loker" class="form-label">Loker</label>
-                                <input id="loker" name="loker" type="text" class="form-control"  required>
+                                <label for="posisi" class="form-label">Posisi:</label>
+                                <input id="posisi" name="posisi" type="text" class="form-control"  required>
                             </div>
                             <div class="mb-3">
-                                <label for="nama_perusahaan" class="form-label">Nama Perusahaan</label>
-                                <input id="nama_perusahaan" name="nama_perusahaan" type="text" class="form-control" required>
+                                <label for="perusahaan" class="form-label">Perusahaan:</label>
+                                <input id="perusahaan" name="perusahaan" type="text" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <label for="tgl_loker" class="form-label">Tanggal Loker</label>
-                                <input id="tgl_loker" name="tgl_loker" type="date" class="form-control" required>
+                                <label for="lokasi" class="form-label">Lokasi:</label>
+                                <input id="lokasi" name="lokasi" type="text" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <label for="ket_loker" class="form-label">Keterangan Loker</label>
-                                <input id="ket_loker" name="ket_loker" type="text" class="form-control" required>
+                                <label for="deskripsi" class="form-label">Deskripsi:</label>
+                                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="4" cols="50">
+                                </textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="jenis_loker" class="form-label">Jenis Loker</label>
-                                <input id="jenis_loker" name="jenis_loker" type="text" class="form-control" required>
+                                <label for="kualifikasi" class="form-label">Kualifikasi:</label>
+                                <textarea class="form-control" id="kualifikasi" name="kualifikasi" rows="4" cols="50">
+                                </textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="id_wisuda" class="form-label">Tanggal Wisuda</label>
-                                <input id="id_wisuda" name="id_wisuda" type="date" class="form-control" required>
+                                <label for="tanggal_buka" class="form-label">Tanggal Buka:</label>
+                                <input id="tanggal_buka" name="tanggal_buka" type="date" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tanggal_tutup" class="form-label">Tanggal Tutup:</label>
+                                <input id="tanggal_tutup" name="tanggal_tutup" type="date" class="form-control" required>
                             </div>
 
                             <a class="btn btn-secondary float-end ms-2" href="/alumni_career_center" >Kembali</a>

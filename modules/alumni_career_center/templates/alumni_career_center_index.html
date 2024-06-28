@@ -99,13 +99,28 @@
                 </p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="/alumni_career_center" class="nav-link active">
+            <li class="nav-item menu-open">
+                <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-briefcase"></i>
                 <p>
-                    Career center
+                    Career Center
+                    <i class="right fas fa-angle-left"></i>
                 </p>
                 </a>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="/alumni_career_center" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Data Loker</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/alumni_career_center/data_pelamar" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Data Pelamar</p>
+                    </a>
+                </li>
+                </ul>
             </li>
             <li class="nav-item">
                 <a href="/data_alumni" class="nav-link">
@@ -210,12 +225,13 @@
                             <thead>
                             <tr class="text-center">
                                 <th>No</th>
-                                <th>Lowongan Kerja</th>
-                                <th>Nama Perusahaan</th>
-                                <th>Tanggal Loker</th>
-                                <th>Keterangan Loker</th>
-                                <th>Jenis Loker</th>
-                                <th>Tanggal Wisuda</th>
+                                <th>posisi</th>
+                                <th>Perusahaan</th>
+                                <th>Lokasi</th>
+                                <th>Deskripsi</th>
+                                <th>Kualifikasi</th>
+                                <th>Tanggal Buka</th>
+                                <th>Tanggal Tutup</th>
                                 <th>Aksi</th>
                             </tr>
                             </thead>
@@ -223,18 +239,19 @@
                             {% for obj in data %}
                             <tr class="text-center">
                                 <td>{{ loop.index }}</td>
-                                <td>{{obj.loker}}</td>
-                                <td>{{obj.nama_perusahaan}}</td>
-                                <td>{{obj.tgl_loker}}</td>
-                                <td>{{obj.ket_loker}}</td>
-                                <td>{{obj.jenis_loker}}</td>
-                                <td>{{obj.tgl_wisuda}}</td>
+                                <td>{{obj.posisi}}</td>
+                                <td>{{obj.perusahaan}}</td>
+                                <td>{{obj.lokasi}}</td>
+                                <td>{{obj.deskripsi}}</td>
+                                <td>{{obj.kualifikasi}}</td>
+                                <td>{{obj.tanggal_buka}}</td>
+                                <td>{{obj.tanggal_tutup}}</td>
                                 <td class="text-center align-middle">
                                     <div class="btn-group" role="group" aria-label="Action buttons">
-                                        <a class="btn btn-info" href="/alumni_career_center/edit/{{obj.id_loker}}">
+                                        <a class="btn btn-info" href="/alumni_career_center/edit/{{obj.id_lowongan}}">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a class="btn btn-danger delete" href="/alumni_career_center/delete/{{obj.id_loker}}" title="delete" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">
+                                        <a class="btn btn-danger delete" href="/alumni_career_center/delete/{{obj.id_lowongan}}" title="delete" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                     </div>
