@@ -5,6 +5,11 @@ from utils import login_required
 class Alumni_career_centerView:
     
     @staticmethod
+    def tambah_data_pelamar():
+        data =  Alumni_career_centerModel().get_data()
+        return render_template('alumni_career_center_daftar.html', data=data)
+
+    @staticmethod
     @login_required
     def index():
         data = Alumni_career_centerModel().get_data()
@@ -99,4 +104,15 @@ class Alumni_career_centerView:
             flash('Data Berhasil Diperbaharui', 'success')
             return redirect('/alumni_career_center/data_pelamar')
         else:
+            return redirect(request.referrer)
+
+    @staticmethod
+    @login_required
+    def hapus_data_pelamar(id):
+        data = Alumni_career_centerModel().find(id)
+        if data:
+            Alumni_career_centerModel().delete_data_pelamar(id)
+            flash('Data Berhasil Dihapus', 'success')
+            return redirect ('/alumni_career_center/data_pelamar')
+        else: 
             return redirect(request.referrer)

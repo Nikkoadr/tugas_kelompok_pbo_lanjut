@@ -6,6 +6,7 @@ class Alumni_career_centerModel(CoreModel):
         self.table_name = "lowongan_kerja"
         self.table_id = "id_lowongan"
 
+
     def get_data(self):
         connection = get_db()
         cursor = connection.cursor()
@@ -88,6 +89,17 @@ class Alumni_career_centerModel(CoreModel):
                         id_pelamar = %s;
                 """
         cursor.execute(query, (obj.nama, obj.email, obj.no_hp, obj.tanggal_melamar, obj.status, id))
+        connection.commit()
+        cursor.close()
+        connection.close()
+
+    def delete_data_pelamar(self, id):
+        connection = get_db()
+        cursor = connection.cursor()
+        query = """
+                    DELETE FROM pelamar WHERE id_pelamar = %s
+                """
+        cursor.execute(query, (id,))
         connection.commit()
         cursor.close()
         connection.close()

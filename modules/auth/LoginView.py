@@ -5,6 +5,10 @@ from utils import login_required
 class LoginView:
     @staticmethod
     def index():
+        return render_template('welcome.html')
+
+    @staticmethod
+    def login_page():
         return render_template('login_index.html')
 
     @staticmethod
