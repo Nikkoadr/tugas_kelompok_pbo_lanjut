@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 27 Jun 2024 pada 20.34
+-- Waktu pembuatan: 28 Jun 2024 pada 10.03
 -- Versi server: 8.0.33
 -- Versi PHP: 8.2.4
 
@@ -41,28 +41,6 @@ CREATE TABLE `alumni` (
 INSERT INTO `alumni` (`id_alumni`, `id_mahasiswa`, `pekerjaan`, `no_hp`) VALUES
 (1, 1, 'Programmer', '081234567890'),
 (2, 2, 'Engineer', '081234567891');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `data_loker`
---
-
-CREATE TABLE `data_loker` (
-  `id_loker` int NOT NULL,
-  `id_alumni` int DEFAULT NULL,
-  `posisi` varchar(255) DEFAULT NULL,
-  `perusahaan` varchar(255) DEFAULT NULL,
-  `alamat` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=armscii8;
-
---
--- Dumping data untuk tabel `data_loker`
---
-
-INSERT INTO `data_loker` (`id_loker`, `id_alumni`, `posisi`, `perusahaan`, `alamat`) VALUES
-(1, 1, 'Backend Developer', 'ABC Tech', 'Jakarta'),
-(2, 2, 'Frontend Developer', 'XYZ Solutions', 'Surabaya');
 
 -- --------------------------------------------------------
 
@@ -150,6 +128,31 @@ INSERT INTO `lampiran_tugas_akhir` (`id_lampiran`, `id_tugas_akhir`, `nama_file`
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `lowongan_kerja`
+--
+
+CREATE TABLE `lowongan_kerja` (
+  `id_lowongan` int NOT NULL,
+  `posisi` varchar(255) DEFAULT NULL,
+  `perusahaan` varchar(255) DEFAULT NULL,
+  `lokasi` varchar(255) DEFAULT NULL,
+  `deskripsi` text,
+  `kualifikasi` text,
+  `tanggal_buka` date DEFAULT NULL,
+  `tanggal_tutup` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=armscii8;
+
+--
+-- Dumping data untuk tabel `lowongan_kerja`
+--
+
+INSERT INTO `lowongan_kerja` (`id_lowongan`, `posisi`, `perusahaan`, `lokasi`, `deskripsi`, `kualifikasi`, `tanggal_buka`, `tanggal_tutup`) VALUES
+(1, 'Backend Developer', 'PT RST', 'Jakarta', 'Mengembangkan API dan sistem backend.', 'Pengalaman minimal 2 tahun di bidang terkait.', '2024-01-01', '2024-01-01'),
+(2, 'Frontend Developer', 'XYZ Solutions', 'Surabaya', 'Membangun antarmuka pengguna untuk aplikasi web.', 'Pengalaman minimal 1 tahun di bidang terkait.', '2024-01-15', '2024-04-15');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `mahasiswa`
 --
 
@@ -167,6 +170,29 @@ CREATE TABLE `mahasiswa` (
 INSERT INTO `mahasiswa` (`id_mahasiswa`, `id_user`, `id_progdi`, `sekolah_asal`) VALUES
 (1, 3, 1, 'SMA N 1 Jakarta'),
 (2, 4, 1, 'SMA N 2 Jakarta');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pelamar`
+--
+
+CREATE TABLE `pelamar` (
+  `id_pelamar` int NOT NULL,
+  `nama` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `no_hp` varchar(255) DEFAULT NULL,
+  `id_lowongan` int DEFAULT NULL,
+  `tanggal_melamar` date DEFAULT NULL,
+  `status` varchar(255) DEFAULT 'Dalam Proses'
+) ENGINE=InnoDB DEFAULT CHARSET=armscii8;
+
+--
+-- Dumping data untuk tabel `pelamar`
+--
+
+INSERT INTO `pelamar` (`id_pelamar`, `nama`, `email`, `no_hp`, `id_lowongan`, `tanggal_melamar`, `status`) VALUES
+(1, 'Budi Santoso', 'budi@example.com', '081234567890', 1, '2024-01-05', 'Diterima');
 
 -- --------------------------------------------------------
 
@@ -229,6 +255,29 @@ INSERT INTO `program_studi` (`id_progdi`, `progdi`, `id_fakultas`) VALUES
 (1, 'Teknik Informatika', 1),
 (2, 'Teknik Elektro', 1),
 (3, 'Manajemen', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `publikasi`
+--
+
+CREATE TABLE `publikasi` (
+  `id_publikasi` int NOT NULL,
+  `judul` varchar(255) DEFAULT NULL,
+  `jenis` varchar(100) DEFAULT NULL,
+  `tahun` year DEFAULT NULL,
+  `abstrak` text,
+  `id_dosen` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=armscii8;
+
+--
+-- Dumping data untuk tabel `publikasi`
+--
+
+INSERT INTO `publikasi` (`id_publikasi`, `judul`, `jenis`, `tahun`, `abstrak`, `id_dosen`) VALUES
+(1, 'Implementasi Machine Learning dalam Sistem Informasi', 'Jurnal', '2022', 'Penelitian ini membahas implementasi machine learning dalam pengembangan sistem informasi.', 1),
+(2, 'Studi Kasus Penggunaan IoT di Industri 4.0', 'Konferensi', '2023', 'Studi kasus ini membahas aplikasi Internet of Things (IoT) di lingkungan industri 4.0.', 2);
 
 -- --------------------------------------------------------
 
@@ -299,14 +348,14 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `password`, `email`, `gelar_depan`,`nama_awal`,`nama_akhir`,`gelar_belakang`, `id_grup`) VALUES
-(1, 'admin', 'admin123', 'admin@univ.ac.id', 'Dr','Dohari','Ajja','MKV', 1),
-(2, 'dosen1', 'dosen123', 'dosen1@univ.ac.id', '','Trenggono','yaaa','MP4', 2),
-(3, 'mhs1', 'mhs123', 'mhs1@univ.ac.id', '','Godogan','Boled','', 3),
-(4, 'mhs2', 'mhs123', 'mhs2@univ.ac.id', '','Godogan','Endas','', 3),
-(9, 'dosen2', 'dosen123', 'dosen2@univ.ac.id', '','Saba','nurrr','M.Kom', 2),
-(10, 'dosen3', 'dosen123', 'dosen3@univ.ac.id', '','Lukman','nurhakim','', 2),
-(11, 'dosen4', 'dosen123', 'dosen4@univ.ac.id', '','diding','dong','', 2);
+INSERT INTO `user` (`id_user`, `username`, `password`, `email`, `gelar_depan`, `nama_awal`, `nama_akhir`, `gelar_belakang`, `id_grup`) VALUES
+(1, 'admin', 'admin123', 'admin@univ.ac.id', 'Dr', 'Dohari', 'Ajja', 'MKV', 1),
+(2, 'dosen1', 'dosen123', 'dosen1@univ.ac.id', '', 'Trenggono', 'yaaa', 'MP4', 2),
+(3, 'mhs1', 'mhs123', 'mhs1@univ.ac.id', '', 'Godogan', 'Boled', '', 3),
+(4, 'mhs2', 'mhs123', 'mhs2@univ.ac.id', '', 'Godogan', 'Endas', '', 3),
+(9, 'dosen2', 'dosen123', 'dosen2@univ.ac.id', '', 'Saba', 'nurrr', 'M.Kom', 2),
+(10, 'dosen3', 'dosen123', 'dosen3@univ.ac.id', '', 'Lukman', 'nurhakim', '', 2),
+(11, 'dosen4', 'dosen123', 'dosen4@univ.ac.id', '', 'diding', 'dong', '', 2);
 
 -- --------------------------------------------------------
 
@@ -340,13 +389,6 @@ ALTER TABLE `alumni`
   ADD KEY `id_mahasiswa` (`id_mahasiswa`);
 
 --
--- Indeks untuk tabel `data_loker`
---
-ALTER TABLE `data_loker`
-  ADD PRIMARY KEY (`id_loker`),
-  ADD KEY `id_alumni` (`id_alumni`);
-
---
 -- Indeks untuk tabel `dosen`
 --
 ALTER TABLE `dosen`
@@ -373,12 +415,25 @@ ALTER TABLE `lampiran_tugas_akhir`
   ADD KEY `id_tugas_akhir` (`id_tugas_akhir`);
 
 --
+-- Indeks untuk tabel `lowongan_kerja`
+--
+ALTER TABLE `lowongan_kerja`
+  ADD PRIMARY KEY (`id_lowongan`);
+
+--
 -- Indeks untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`id_mahasiswa`),
   ADD KEY `id_user` (`id_user`),
   ADD KEY `id_progdi` (`id_progdi`);
+
+--
+-- Indeks untuk tabel `pelamar`
+--
+ALTER TABLE `pelamar`
+  ADD PRIMARY KEY (`id_pelamar`),
+  ADD KEY `id_lowongan` (`id_lowongan`);
 
 --
 -- Indeks untuk tabel `penguji_tugas_akhir`
@@ -402,6 +457,13 @@ ALTER TABLE `peserta_wisuda`
 ALTER TABLE `program_studi`
   ADD PRIMARY KEY (`id_progdi`),
   ADD KEY `id_fakultas` (`id_fakultas`);
+
+--
+-- Indeks untuk tabel `publikasi`
+--
+ALTER TABLE `publikasi`
+  ADD PRIMARY KEY (`id_publikasi`),
+  ADD KEY `id_dosen` (`id_dosen`);
 
 --
 -- Indeks untuk tabel `riwayat_revisi_tugas_akhir`
@@ -442,12 +504,6 @@ ALTER TABLE `alumni`
   MODIFY `id_alumni` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `data_loker`
---
-ALTER TABLE `data_loker`
-  MODIFY `id_loker` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT untuk tabel `dosen`
 --
 ALTER TABLE `dosen`
@@ -472,10 +528,22 @@ ALTER TABLE `lampiran_tugas_akhir`
   MODIFY `id_lampiran` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT untuk tabel `lowongan_kerja`
+--
+ALTER TABLE `lowongan_kerja`
+  MODIFY `id_lowongan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
   MODIFY `id_mahasiswa` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `pelamar`
+--
+ALTER TABLE `pelamar`
+  MODIFY `id_pelamar` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `penguji_tugas_akhir`
@@ -494,6 +562,12 @@ ALTER TABLE `peserta_wisuda`
 --
 ALTER TABLE `program_studi`
   MODIFY `id_progdi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `publikasi`
+--
+ALTER TABLE `publikasi`
+  MODIFY `id_publikasi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `riwayat_revisi_tugas_akhir`
@@ -530,12 +604,6 @@ ALTER TABLE `alumni`
   ADD CONSTRAINT `alumni_ibfk_1` FOREIGN KEY (`id_mahasiswa`) REFERENCES `mahasiswa` (`id_mahasiswa`);
 
 --
--- Ketidakleluasaan untuk tabel `data_loker`
---
-ALTER TABLE `data_loker`
-  ADD CONSTRAINT `data_loker_ibfk_1` FOREIGN KEY (`id_alumni`) REFERENCES `alumni` (`id_alumni`);
-
---
 -- Ketidakleluasaan untuk tabel `dosen`
 --
 ALTER TABLE `dosen`
@@ -553,6 +621,12 @@ ALTER TABLE `lampiran_tugas_akhir`
 ALTER TABLE `mahasiswa`
   ADD CONSTRAINT `mahasiswa_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
   ADD CONSTRAINT `mahasiswa_ibfk_2` FOREIGN KEY (`id_progdi`) REFERENCES `program_studi` (`id_progdi`);
+
+--
+-- Ketidakleluasaan untuk tabel `pelamar`
+--
+ALTER TABLE `pelamar`
+  ADD CONSTRAINT `pelamar_ibfk_1` FOREIGN KEY (`id_lowongan`) REFERENCES `lowongan_kerja` (`id_lowongan`);
 
 --
 -- Ketidakleluasaan untuk tabel `penguji_tugas_akhir`
@@ -573,6 +647,12 @@ ALTER TABLE `peserta_wisuda`
 --
 ALTER TABLE `program_studi`
   ADD CONSTRAINT `program_studi_ibfk_1` FOREIGN KEY (`id_fakultas`) REFERENCES `fakultas` (`id_fakultas`);
+
+--
+-- Ketidakleluasaan untuk tabel `publikasi`
+--
+ALTER TABLE `publikasi`
+  ADD CONSTRAINT `publikasi_ibfk_1` FOREIGN KEY (`id_dosen`) REFERENCES `dosen` (`id_dosen`);
 
 --
 -- Ketidakleluasaan untuk tabel `riwayat_revisi_tugas_akhir`
