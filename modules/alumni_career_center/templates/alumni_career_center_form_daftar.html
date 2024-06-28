@@ -100,22 +100,28 @@
 <!-- Job Listings Section -->
 <section class="content-section">
     <div class="container">
-        <h2 class="text-center">Pilihan Lowongan Kerja</h2>
-        {% for obj in data %}
-        <div class="job-listing">
-            <h3>{{obj.posisi}}</h3>
-            <p><strong>Perusahaan:</strong> {{obj.perusahaan}}</p>
-            <p><strong>Lokasi:</strong> {{obj.lokasi}}</p>
-            <p><strong>Deskripsi:</strong> {{obj.deskripsi}}</p>
-            <p><strong>Kualifikasi:</strong> {{obj.kualifikasi}}</p>
-            <p><strong>Tanggal Buka:</strong> {{obj.tanggal_buka}}</p>
-            <p><strong>tanggal Tutup:</strong> {{obj.tanggal_tutup}}</p>
-            <form action="/alumni_career_center/ambil_data_perusahaan" method="post">
-                <input type="hidden" name="id_lowongan" value="{{ obj.id_lowongan }}">
+        <h2 class="text-center">Isi Formulir Pendaftaran</h2>
+        <h3 class="text-center">Anda Mendaftar Pada Perusahaan : {{ data.perusahaan }}</h3>
+        <form action="tambah_data_pelamar" method="post">
+                <input type="hidden" name="id_lowongan" value="{{ data.id_lowongan }}">
+                <div class="form-group">
+                    <label for="nama">Nama:</label>
+                    <input type="text" class="form-control" id="nama" name="nama" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="no_hp">No. HP:</label>
+                    <input type="text" class="form-control" id="no_hp" name="no_hp" required>
+                </div>
+                <div class="form-group">
+                    <label for="tanggal_melamar">Tanggal Melamar:</label>
+                    <input type="date" class="form-control" id="tanggal_melamar" name="tanggal_melamar" required>
+                </div>
                 <button class="btn btn-primary" type="submit">Daftar</button>
             </form>
-        </div>
-        {% endfor %}
     </div>
 </section>
 

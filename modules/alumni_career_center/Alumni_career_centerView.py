@@ -1,5 +1,6 @@
 from flask import *
 from modules.alumni_career_center.Alumni_career_centerModel import *
+from modules.alumni_career_center.PelamarModel import *
 from utils import login_required
 
 class Alumni_career_centerView:
@@ -116,3 +117,23 @@ class Alumni_career_centerView:
             return redirect ('/alumni_career_center/data_pelamar')
         else: 
             return redirect(request.referrer)
+
+    @staticmethod
+    def ambil_data_perusahaan():
+        id_lowongan = request.form['id_lowongan']
+        data = Alumni_career_centerModel().cari_perusahaan(id_lowongan)
+        return render_template('alumni_career_center_form_daftar.html', data=data, id_lowongan=id_lowongan)
+
+    @staticmethod
+    def tambah_data_pelamar():
+        obj = PelamarModel()
+        form = request.form
+        obj.nama = form['nama']
+        obj.email = form['email']
+        obj.no_hp = form['no_hp']
+        obj.id_lowongan = form['id_lowongan']
+        obj.tanggal_melamar = form['tanggal_melamar']
+        
+        PelamarModel().store(obj)
+        flash('Data Berhasil Ditambahkan', 'success')
+        return redirect('/')

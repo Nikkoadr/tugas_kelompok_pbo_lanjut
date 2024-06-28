@@ -103,3 +103,21 @@ class Alumni_career_centerModel(CoreModel):
         connection.commit()
         cursor.close()
         connection.close()
+
+    def cari_perusahaan(self, id):
+            connection = get_db()
+            cursor = connection.cursor()
+            query = """
+                SELECT 
+                    lowongan_kerja.id_lowongan,
+                    lowongan_kerja.perusahaan
+                FROM 
+                    lowongan_kerja
+                WHERE 
+                    lowongan_kerja.id_lowongan = %s;
+            """
+            cursor.execute(query, (id,))
+            result = cursor.fetchone()
+            cursor.close()
+            connection.close()
+            return result
