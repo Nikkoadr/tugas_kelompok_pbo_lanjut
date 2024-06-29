@@ -5,6 +5,7 @@ app_alumni_career_center = Blueprint('app_alumni_career_center',__name__, templa
 app_alumni_career_center.add_url_rule('/','index', Alumni_career_centerView().index, methods=['GET'])
 
 app_alumni_career_center.add_url_rule('/data_pelamar','data_pelamar', Alumni_career_centerView().data_pelamar, methods=['GET'])
+app_alumni_career_center.add_url_rule('/pendaftaran','pendaftaran', Alumni_career_centerView().daftar, methods=['GET'])
 app_alumni_career_center.add_url_rule('/tambah_data_pelamar','tambah_data_pelamar', Alumni_career_centerView().tambah_data_pelamar, methods=['POST'])
 app_alumni_career_center.add_url_rule('/ambil_data_perusahaan','ambil_data_perusahaan', Alumni_career_centerView().ambil_data_perusahaan, methods=['POST'])
 app_alumni_career_center.add_url_rule('/edit_data_pelamar/<int:id>','edit_data_pelamar', Alumni_career_centerView().edit_data_pelamar, methods=['GET'])

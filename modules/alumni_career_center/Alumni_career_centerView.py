@@ -2,13 +2,9 @@ from flask import *
 from modules.alumni_career_center.Alumni_career_centerModel import *
 from modules.alumni_career_center.PelamarModel import *
 from utils import login_required
+from datetime import datetime
 
 class Alumni_career_centerView:
-    
-    @staticmethod
-    def tambah_data_pelamar():
-        data =  Alumni_career_centerModel().get_data()
-        return render_template('alumni_career_center_daftar.html', data=data)
 
     @staticmethod
     @login_required
@@ -119,6 +115,11 @@ class Alumni_career_centerView:
             return redirect(request.referrer)
 
     @staticmethod
+    def daftar():
+        data =  Alumni_career_centerModel().get_data()
+        return render_template('alumni_career_center_daftar.html', data=data)
+
+    @staticmethod
     def ambil_data_perusahaan():
         id_lowongan = request.form['id_lowongan']
         data = Alumni_career_centerModel().cari_perusahaan(id_lowongan)
@@ -132,7 +133,7 @@ class Alumni_career_centerView:
         obj.email = form['email']
         obj.no_hp = form['no_hp']
         obj.id_lowongan = form['id_lowongan']
-        obj.tanggal_melamar = form['tanggal_melamar']
+        obj.tanggal_melamar = datetime.now()
         
         PelamarModel().store(obj)
         flash('Data Berhasil Ditambahkan', 'success')
