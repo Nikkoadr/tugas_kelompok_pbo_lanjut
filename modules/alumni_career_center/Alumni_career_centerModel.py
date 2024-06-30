@@ -93,6 +93,18 @@ class Alumni_career_centerModel(CoreModel):
         cursor.close()
         connection.close()
 
+    @staticmethod
+    def delete_loker(id):
+        connection = get_db()
+        cursor = connection.cursor()
+        query_delete_pelamar = "DELETE FROM pelamar WHERE id_lowongan = %s"
+        cursor.execute(query_delete_pelamar, (id,))
+        query_delete_lowongan = "DELETE FROM lowongan_kerja WHERE id_lowongan = %s"
+        cursor.execute(query_delete_lowongan, (id,))
+        connection.commit()
+        cursor.close()
+        connection.close()
+
     def delete_data_pelamar(self, id):
         connection = get_db()
         cursor = connection.cursor()

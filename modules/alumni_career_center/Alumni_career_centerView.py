@@ -66,7 +66,7 @@ class Alumni_career_centerView:
     def delete(id):
         data = Alumni_career_centerModel().find(id)
         if data:
-            Alumni_career_centerModel().delete(id)
+            Alumni_career_centerModel().delete_loker(id)
             flash('Data Berhasil Dihapus', 'success')
             return redirect ('/alumni_career_center')
         else: 

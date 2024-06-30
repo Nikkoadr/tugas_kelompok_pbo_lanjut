@@ -19,6 +19,7 @@ class LoginModel(CoreModel):
                 return {
                     'email': user['email'],
                     'nama_awal': user['nama_awal'],
-                    'nama_akhir': user['nama_akhir']
+                    'nama_akhir': user['nama_akhir'],
+                    'id_grup': user['id_grup']
                 }
             return None

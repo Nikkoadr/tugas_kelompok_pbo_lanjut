@@ -21,6 +21,7 @@ class LoginView:
                 session['email'] = user['email']
                 session['nama_awal'] = user['nama_awal']
                 session['nama_akhir'] = user['nama_akhir']
+                session['id_grup'] = user['id_grup']
                 return redirect('/home')
             else :
                 flash('email dan password salah!')

@@ -6,18 +6,18 @@ def login_required(f):
     def decorated_function(*args, **kwargs):
         if 'email' not in session:
             flash('Login dikit boss!')
-            return redirect('/')
+            return redirect('/login_page')
         return f(*args, **kwargs)
     return decorated_function
 
-def role_required(role):
-    def wrapper(fn):
-        @wraps(fn)
-        def decorated_view(*args, **kwargs):
-            if not current_user.is_authenticated:
-                return login_manager.unauthorized()
-            if current_user.role != role:
-                abort(403)
-            return fn(*args, **kwargs)
-        return decorated_view
-    return wrapper
+def role_required(id_grup):
+    def decorator(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            if 'id_grup' in session:
+                session_id_grup = session['id_grup']
+                if session_id_grup == id_grup:
+                    return f(*args, **kwargs)
+            abort(403)  # Unauthorized
+        return decorated_function
+    return decorator

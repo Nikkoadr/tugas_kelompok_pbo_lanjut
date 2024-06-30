@@ -1,11 +1,12 @@
 from flask import *
 from modules.data_alumni.Data_alumniModel import *
-from utils import login_required
+from utils import *
 
 class Data_alumniView:
     
     @staticmethod
     @login_required
+    @role_required(1)
     def index():
         data = Data_alumniModel().get_nama()
         return render_template('data_alumni_index.html',data=data) #jsonify(data)

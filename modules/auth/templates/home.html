@@ -99,13 +99,29 @@
                 </p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="/alumni_career_center" class="nav-link">
+            {% if session['id_grup'] == 1 %}
+            <li class="nav-item menu-open">
+                <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-briefcase"></i>
                 <p>
-                    Career center
+                    Career Center
+                    <i class="right fas fa-angle-left"></i>
                 </p>
                 </a>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="/alumni_career_center" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Data Loker</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/alumni_career_center/data_pelamar" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Data Pelamar</p>
+                    </a>
+                </li>
+                </ul>
             </li>
             <li class="nav-item">
                 <a href="/data_alumni" class="nav-link">
@@ -169,6 +185,7 @@
                 </li>
                 </ul>
             </li>
+            {% endif %}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
