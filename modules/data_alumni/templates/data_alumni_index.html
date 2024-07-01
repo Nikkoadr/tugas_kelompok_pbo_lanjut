@@ -215,6 +215,7 @@
                                 <th>No Ijazah</th>
                                 <th>Judul Skripsi</th>
                                 <th>IPK Lulus</th>
+                                <th>Pekerjaan Saat Ini</th>
                                 <th>Aksi</th>
                             </tr>
                             </thead>
@@ -227,12 +228,13 @@
                                 <td>{{obj.no_ijazah}}</td>
                                 <td>{{obj.judul_skripsi}}</td>
                                 <td>{{obj.ipk_lulus}}</td>
+                                <td>{{obj.pekerjaan}}</td>
                                 <td class="text-center align-middle">
                                     <div class="btn-group" role="group" aria-label="Action buttons">
-                                        <a class="btn btn-info" href="/data_alumni/edit/{{obj.id_lulus}}">
+                                        <a class="btn btn-info" href="/data_alumni/edit/{{obj.id_alumni}}">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a class="btn btn-danger delete" href="/data_alumni/delete/{{obj.id_lulus}}" title="delete" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">
+                                        <a class="btn btn-danger delete" href="/data_alumni/delete/{{obj.id_alumni}}" title="delete" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                     </div>

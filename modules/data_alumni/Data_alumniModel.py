@@ -4,7 +4,7 @@ from connection import get_db
 class Data_alumniModel(CoreModel):
     def __init__(self):
         self.table_name = "alumni"
-        self.table_id = "id_lulus"
+        self.table_id = "id_alumni"
 
     def get_nama(self):
         connection = get_db()

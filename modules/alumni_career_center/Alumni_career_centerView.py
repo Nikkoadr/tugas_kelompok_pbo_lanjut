@@ -129,12 +129,13 @@ class Alumni_career_centerView:
     def tambah_data_pelamar():
         obj = PelamarModel()
         form = request.form
+        obj.code = form['code']
         obj.nama = form['nama']
         obj.email = form['email']
         obj.no_hp = form['no_hp']
         obj.id_lowongan = form['id_lowongan']
         obj.tanggal_melamar = datetime.now()
-        
         PelamarModel().store(obj)
-        flash('Data Berhasil Ditambahkan', 'success')
-        return redirect('/')
+        id_lowongan = request.form['id_lowongan']
+        data = Alumni_career_centerModel().cari_perusahaan(id_lowongan)
+        return render_template('print.html', obj=obj, data=data)

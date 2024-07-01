@@ -3,21 +3,21 @@ from connection import get_db
 
 class Publikasi_dosenModel(CoreModel):
     def __init__(self):
-        self.table_name = "publikasi_dosen"
-        self.table_id = "id_publikasi_dosen"
+        self.table_name = "publikasi"
+        self.table_id = "id_publikasi"
 
     def publikasi_dosen_all(self):
         connection = get_db()
         cursor = connection.cursor()
         query = """
                     SELECT
-                        publikasi_dosen.*,
+                        publikasi.*,
                         user.nama_awal,
                         user.nama_akhir
                     FROM
-                        publikasi_dosen
+                        publikasi
                     JOIN
-                        dosen ON publikasi_dosen.id_dosen = dosen.id_dosen
+                        dosen ON publikasi.id_dosen = dosen.id_dosen
                     JOIN
                         user ON dosen.id_dosen = user.id_user
                 """

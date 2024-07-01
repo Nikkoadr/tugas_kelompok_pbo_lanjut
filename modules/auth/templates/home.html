@@ -186,6 +186,82 @@
                 </ul>
             </li>
             {% endif %}
+            {% if session['id_grup'] == 2 %}
+            <li class="nav-item">
+                <a href="/publish_jurnal" class="nav-link">
+                <i class="nav-icon fas fa-address-book"></i>
+                <p>
+                    Publikasi Jurnal
+                </p>
+                </a>
+            </li>
+            <li class="nav-item menu-open">
+                <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-newspaper"></i>
+                <p>
+                    Tugas Akhir
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+                </a>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="/tugas_akhir_mahasiswa" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pembimbing</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Mahasiswa</p>
+                    </a>
+                </li>
+                </ul>
+            </li>
+            {% endif %}
+            {% if session['id_grup'] == 3 %}
+
+            <li class="nav-item menu-open">
+                <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-chair"></i>
+                <p>
+                    Wisudah
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+                </a>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="/daftar_wisudah" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Daftar</p>
+                    </a>
+                </li>
+                </ul>
+            </li>
+            <li class="nav-item menu-open">
+                <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-newspaper"></i>
+                <p>
+                    Tugas Akhir
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+                </a>
+                <!-- <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="/tugas_akhir_mahasiswa" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pembimbing</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Mahasiswa</p>
+                    </a>
+                </li>
+                </ul> -->
+            </li>
+            {% endif %}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

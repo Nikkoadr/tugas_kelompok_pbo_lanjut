@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Pendaftar - Universitas Abal-Abal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+            text-align: left;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            window.print();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Data Pendaftar - Universitas Abal-Abal</h1>
+        <table>
+            <tr>
+                <th>Perusahaan</th>
+                <td>{{ data.perusahaan }}</td>
+            </tr>
+            <tr>
+                <th>Code Pendaftar</th>
+                <td>{{ obj.code }}</td>
+            </tr>
+            <tr>
+                <th>Nama</th>
+                <td>{{ obj.nama }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ obj.email }}</td>
+            </tr>
+            <tr>
+                <th>Nomor HP</th>
+                <td>{{ obj.no_hp }}</td>
+            </tr>
+            <tr>
+                <th>Tanggal Melamar</th>
+                <td>{{ obj.tanggal_melamar }}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

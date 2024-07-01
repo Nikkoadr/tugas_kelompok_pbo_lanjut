@@ -195,7 +195,7 @@
                     <div class="card">
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="/data_alumni/update/{{ obj.id_lulus }}" method="POST">
+                        <form action="/data_alumni/update/{{ obj.id_alumni }}" method="POST">
                             <div class="mb-3">
                                 <label for="ipk_lulus" class="form-label">IPK Lulus</label>
                                 <input id="ipk_lulus" name="ipk_lulus" type="text" class="form-control" value="{{ obj.ipk_lulus }}" required>
@@ -209,8 +209,8 @@
                                 <input id="no_ijazah" name="no_ijazah" type="text" class="form-control" value="{{ obj.no_ijazah }}" required>
                             </div>
                             <div class="mb-3">
-                                <label for="perusahaan_kerja" class="form-label">Perusahaan kerja</label>
-                                <input id="perusahaan_kerja" name="perusahaan_kerja" type="text" class="form-control" value="{{ obj.perusahaan_kerja }}" required>
+                                <label for="pekerjaan" class="form-label">Pekerjaan Saat Ini</label>
+                                <input id="pekerjaan" name="pekerjaan" type="text" class="form-control" value="{{ obj.pekerjaan }}" required>
                             </div>
                             <a href="/data_alumni" class="btn btn-secondary float-end ms-2">Batal</a>
                             <input type="submit" value="Edit" class="btn btn-primary float-end">

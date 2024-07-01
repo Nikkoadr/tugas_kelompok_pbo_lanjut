@@ -99,8 +99,8 @@
             </li>
             <li class="nav-item">
               <a
-                class="nav-link btn btn-info text-white ml-3"
-                href="/alumni_career_center/tambah_data_pelamar"
+                class="nav-link"
+                href="/alumni_career_center/pendaftaran"
                 >Career Center</a
               >
             </li>
@@ -135,6 +135,17 @@
             name="id_lowongan"
             value="{{ data.id_lowongan }}"
           />
+          <div class="form-group">
+            <label for="nama">Code:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="code"
+              name="code"
+              value=""
+              readonly
+            />
+          </div>
           <div class="form-group">
             <label for="nama">Nama:</label>
             <input
@@ -181,5 +192,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+      <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var randomCode = Math.floor(Math.random() * 9000) + 1000;
+      document.getElementById('code').value = randomCode;
+    });
+  </script>
   </body>
 </html>

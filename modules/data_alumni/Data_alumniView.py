@@ -56,12 +56,12 @@ class Data_alumniView:
     def update(id):
         data = Data_alumniModel().find(id)
         if data:
-            post = request.form
+            form = request.form
             obj = Data_alumniModel()
-            obj.ipk_lulus = post['ipk_lulus']
-            obj.judul_skripsi = post['judul_skripsi']
-            obj.no_ijazah = post['no_ijazah']
-            obj.perusahaan_kerja = post['perusahaan_kerja']
+            obj.ipk_lulus = form['ipk_lulus']
+            obj.judul_skripsi = form['judul_skripsi']
+            obj.no_ijazah = form['no_ijazah']
+            obj.pekerjaan = form['pekerjaan']
             Data_alumniModel().update(id, obj)
             flash('Data Berhasil Diperbaharui', 'success')
             return redirect('/data_alumni')
