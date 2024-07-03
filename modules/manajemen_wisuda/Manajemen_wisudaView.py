@@ -80,3 +80,8 @@ class Manajemen_wisudaView:
             return redirect ('/manajemen_wisuda/admin_pendaftar')
         else: 
             return redirect(request.referrer)
+
+    @staticmethod
+    def daftar_wisuda ():
+        data = Manajemen_wisudaModel().all()
+        return render_template('cari.html', data=data)
