@@ -1,3 +1,4 @@
+
 <html lang="en">
     <head>
     <meta charset="utf-8">
@@ -140,13 +141,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="/manajemen_wisuda" class="nav-link active">
+                    <a href="/manajemen_wisuda" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Data Wisudah</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="admin_pendaftar" class="nav-link">
+                    <a href="admin_pendaftar" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Pendaftar</p>
                     </a>
@@ -197,12 +198,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Career Center</h1>
+                    <h1>Pendaftar Wisudah</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Career Center</li>
+                    <li class="breadcrumb-item active">Pendaftar Wisudah</li>
                     </ol>
                 </div>
                 </div>
@@ -216,38 +217,49 @@
                 <div class="col-12">
 
                     <div class="card">
-                    <div class="card-header">
-                        <a class="btn btn-success float-end" href="/alumni_career_center/create">Tambah</a>
-                    </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
-                            <tr class="text-center">
-                                <th>No</th>
-                                <th>Wisuda</th>
-                                <th>Tanggal Wisuda</th>
-                                <th>Aksi</th>
-                            </tr>
+                                <tr>
+                                    <th>
+                                    Tanggal Wisuda
+                                    </th>
+                                    <th>
+                                    Nama Mahasiswa
+                                    </th>
+                                    <th>
+                                    No Urut
+                                    </th>
+                                    <th>
+                                    Menu
+                                    </th>
+                                </tr>
                             </thead>
                             <tbody>
-                            {% for obj in data %}
-                            <tr class="text-center">
-                                <td>{{ loop.index }}</td>
-                                <td>{{obj.wisuda}}</td>
-                                <td>{{obj.tgl_wisuda}}</td>
-                                <td class="text-center align-middle">
-                                    <div class="btn-group" role="group" aria-label="Action buttons">
-                                        <a class="btn btn-info" href="/manajemen_wisuda/edit/{{obj.id_wisuda}}">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger delete" href="/manajemen_wisuda/delete/{{obj.id_wisuda}}" title="delete" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            {% endfor %}
+                                {% for row in data %}
+                                <tr>
+                                    <td>
+                                        {{row.tgl_wisuda}}
+                                    </td>
+                                    <td>
+                                        {{row.nama_awal}} {{ row.nama_akhir }}
+                                    </td>
+                                    <td>
+                                        {{row.no_urut}}
+                                    </td>
+                                    <td class="text-center align-middle">
+                                        <div class="btn-group" role="group" aria-label="Action buttons">
+                                            <a class="btn btn-info" href="/manajemen_wisuda/edit_peserta/{{row.id_peserta}}">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a class="btn btn-danger delete" href="/manajemen_wisuda/delete_peserta/{{row.id_peserta}}" title="delete" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
