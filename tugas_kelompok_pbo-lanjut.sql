@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 28 Jun 2024 pada 10.03
+-- Waktu pembuatan: 03 Jul 2024 pada 09.10
 -- Versi server: 8.0.33
 -- Versi PHP: 8.2.4
 
@@ -42,9 +42,10 @@ CREATE TABLE `alumni` (
 -- Dumping data untuk tabel `alumni`
 --
 
-INSERT INTO `alumni` (`id_alumni`, `id_mahasiswa`,`id_wisuda`,`no_ijazah`, `judul_skripsi`,`ipk_lulus`, `pekerjaan`, `no_hp`) VALUES
-(1, 1, 1,'1234','Judul Skripsi1','3.8', 'Programmer', '081234567890'),
-(2, 2, 1, '5678', 'Judul Skripsi2','3.6','Engineer', '081234567891');
+INSERT INTO `alumni` (`id_alumni`, `id_mahasiswa`, `id_wisuda`, `no_ijazah`, `judul_skripsi`, `ipk_lulus`, `pekerjaan`, `no_hp`) VALUES
+(2, 2, 1, '5678', 'Judul Skripsi2', '3.6', 'tes', '081234567891'),
+(3, 2, 1, '0987', 'Kder', '4', 'IT', '098'),
+(4, 2, 2, '123', '123', '12', '1234', '212');
 
 -- --------------------------------------------------------
 
@@ -151,7 +152,6 @@ CREATE TABLE `lowongan_kerja` (
 --
 
 INSERT INTO `lowongan_kerja` (`id_lowongan`, `posisi`, `perusahaan`, `lokasi`, `deskripsi`, `kualifikasi`, `tanggal_buka`, `tanggal_tutup`) VALUES
-(1, 'Backend Developer', 'PT RST', 'Jakarta', 'Mengembangkan API dan sistem backend.', 'Pengalaman minimal 2 tahun di bidang terkait.', '2024-01-01', '2024-01-01'),
 (2, 'Frontend Developer', 'XYZ Solutions', 'Surabaya', 'Membangun antarmuka pengguna untuk aplikasi web.', 'Pengalaman minimal 1 tahun di bidang terkait.', '2024-01-15', '2024-04-15');
 
 -- --------------------------------------------------------
@@ -183,6 +183,7 @@ INSERT INTO `mahasiswa` (`id_mahasiswa`, `id_user`, `id_progdi`, `sekolah_asal`)
 
 CREATE TABLE `pelamar` (
   `id_pelamar` int NOT NULL,
+  `code` int DEFAULT NULL,
   `nama` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `no_hp` varchar(255) DEFAULT NULL,
@@ -195,8 +196,24 @@ CREATE TABLE `pelamar` (
 -- Dumping data untuk tabel `pelamar`
 --
 
-INSERT INTO `pelamar` (`id_pelamar`, `nama`, `email`, `no_hp`, `id_lowongan`, `tanggal_melamar`, `status`) VALUES
-(1, 'Budi Santoso', 'budi@example.com', '081234567890', 1, '2024-01-05', 'Diterima');
+INSERT INTO `pelamar` (`id_pelamar`, `code`, `nama`, `email`, `no_hp`, `id_lowongan`, `tanggal_melamar`, `status`) VALUES
+(3, 0, 'Nikko', 'sayur@gmalil.com', '9088767', 2, '2024-06-29', 'Dalam Proses'),
+(4, 0, '123', '123@gmail.com', '812', 2, '2024-07-01', 'Dalam Proses'),
+(5, 0, '123', '123@gmail.oc', '0981', 2, '2024-07-01', 'Dalam Proses'),
+(6, 0, '123', '123@gmail.oc', '0981', 2, '2024-07-01', 'Dalam Proses'),
+(7, 0, '123', '123@gmail.oc', '0981', 2, '2024-07-01', 'Dalam Proses'),
+(8, 3675, '1234', 'nik@gmail.com', '098', 2, '2024-07-01', 'Dalam Proses'),
+(9, 3675, '1234', 'nik@gmail.com', '098', 2, '2024-07-01', 'Dalam Proses'),
+(10, 3675, '1234', 'nik@gmail.com', '098', 2, '2024-07-01', 'Dalam Proses'),
+(11, 3675, '1234', 'nik@gmail.com', '098', 2, '2024-07-01', 'Dalam Proses'),
+(12, 2970, '1234', 'nik@gmail.com', '098', 2, '2024-07-01', 'Dalam Proses'),
+(13, 5368, '1234', 'nik@gmail.com', '098', 2, '2024-07-01', 'Dalam Proses'),
+(14, 5368, '1234', 'nik@gmail.com', '098', 2, '2024-07-01', 'Dalam Proses'),
+(15, 4096, '1234', 'nik@gmail.com', '098', 2, '2024-07-01', 'Dalam Proses'),
+(16, 4096, '1234', 'nik@gmail.com', '098', 2, '2024-07-01', 'Dalam Proses'),
+(17, 2415, '123', '123@g.com', '123', 2, '2024-07-01', 'Dalam Proses'),
+(18, 2255, '123', '123@g.com', '123', 2, '2024-07-01', 'Dalam Proses'),
+(19, 2255, '123', '123@g.com', '123', 2, '2024-07-01', 'Dalam Proses');
 
 -- --------------------------------------------------------
 
@@ -272,16 +289,17 @@ CREATE TABLE `publikasi` (
   `jenis` varchar(100) DEFAULT NULL,
   `tahun` year DEFAULT NULL,
   `abstrak` text,
-  `id_dosen` int DEFAULT NULL
+  `id_dosen` int DEFAULT NULL,
+  `status` enum('review','publish') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=armscii8;
 
 --
 -- Dumping data untuk tabel `publikasi`
 --
 
-INSERT INTO `publikasi` (`id_publikasi`, `judul`, `jenis`, `tahun`, `abstrak`, `id_dosen`) VALUES
-(1, 'Implementasi Machine Learning dalam Sistem Informasi', 'Jurnal', '2022', 'Penelitian ini membahas implementasi machine learning dalam pengembangan sistem informasi.', 1),
-(2, 'Studi Kasus Penggunaan IoT di Industri 4.0', 'Konferensi', '2023', 'Studi kasus ini membahas aplikasi Internet of Things (IoT) di lingkungan industri 4.0.', 2);
+INSERT INTO `publikasi` (`id_publikasi`, `judul`, `jenis`, `tahun`, `abstrak`, `id_dosen`, `status`) VALUES
+(1, 'Implementasi Machine Learning dalam Sistem Informasi', 'Jurnal', '2022', 'Penelitian ini membahas implementasi machine learning dalam pengembangan sistem informasi.', 1, 'publish'),
+(2, 'Studi Kasus Penggunaan IoT di Industri 4.0', 'Konferensi', '2023', 'Studi kasus ini membahas aplikasi Internet of Things (IoT) di lingkungan industri 4.0.', 2, 'review');
 
 -- --------------------------------------------------------
 
@@ -505,7 +523,7 @@ ALTER TABLE `wisuda`
 -- AUTO_INCREMENT untuk tabel `alumni`
 --
 ALTER TABLE `alumni`
-  MODIFY `id_alumni` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_alumni` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `dosen`
@@ -547,7 +565,7 @@ ALTER TABLE `mahasiswa`
 -- AUTO_INCREMENT untuk tabel `pelamar`
 --
 ALTER TABLE `pelamar`
-  MODIFY `id_pelamar` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pelamar` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT untuk tabel `penguji_tugas_akhir`
