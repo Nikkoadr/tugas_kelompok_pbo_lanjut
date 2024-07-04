@@ -13,4 +13,4 @@ app_manajemen_wisuda.add_url_rule('/edit_peserta/<int:id>','edit_peserta', Manaj
 app_manajemen_wisuda.add_url_rule('/update_peserta/<int:id>', 'update_peserta', Manajemen_wisudaView().update_peserta, methods=['POST'])
 app_manajemen_wisuda.add_url_rule('/delete_peserta/<int:id>', 'delete_peserta', Manajemen_wisudaView().delete_peserta, methods=['GET'])
 app_manajemen_wisuda.add_url_rule('/daftar_wisuda', 'daftar_wisuda', Manajemen_wisudaView().daftar_wisuda, methods=['GET'])
-#app_manajemen_wisuda.add_url_rule('/cari', 'cari', Manajemen_wisudaView().cari, methods=['GET'])
+app_manajemen_wisuda.add_url_rule('/pilih_wisuda', 'pilih_wisuda', Manajemen_wisudaView().pilih_wisuda, methods=['POST'])

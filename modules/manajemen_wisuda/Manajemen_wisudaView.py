@@ -84,4 +84,10 @@ class Manajemen_wisudaView:
     @staticmethod
     def daftar_wisuda ():
         data = Manajemen_wisudaModel().all()
-        return render_template('cari.html', data=data)
+        return render_template('cari_wisuda_mahasiswa.html', data=data)
+
+    @staticmethod
+    def pilih_wisuda():
+        id_wisuda = request.form['id_wisuda']
+        id_mahasiswa = request.form['id_mahasiswa']
+        return render_template('daftar_wisuda.html', id_wisuda=id_wisuda, id_mahasiswa=id_mahasiswa)
