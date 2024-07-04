@@ -29,7 +29,7 @@ class LoginModel(CoreModel):
                 'nama_awal': user['nama_awal'],
                 'nama_akhir': user['nama_akhir'],
                 'id_grup': user['id_grup'],
-                'id_mahasiswa': mahasiswa['id_mahasiswa']
+                'id_mahasiswa': mahasiswa['id_mahasiswa'] if mahasiswa else None
             }
         
         cursor.close()

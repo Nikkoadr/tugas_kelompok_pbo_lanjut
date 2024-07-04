@@ -87,21 +87,44 @@
             <a href="#" class="d-block">{{ session['nama_awal'] }} {{ session['nama_akhir'] }}</a>
             </div>
         </div>
-        <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="/alumni_career_center" class="nav-link">
-                <i class="nav-icon fas fa-briefcase"></i>
+                <a href="/home" class="nav-link active">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
-                    Career center
+                    Home
                 </p>
                 </a>
             </li>
+            {% if session['id_grup'] == 1 %}
+            <li class="nav-item menu-open">
+                <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-briefcase"></i>
+                <p>
+                    Career Center
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+                </a>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="/alumni_career_center" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Data Loker</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/alumni_career_center/data_pelamar" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Data Pelamar</p>
+                    </a>
+                </li>
+                </ul>
+            </li>
             <li class="nav-item">
-                <a href="/data_alumni" class="nav-link active">
+                <a href="/data_alumni" class="nav-link">
                 <i class="nav-icon fas fa-address-book"></i>
                 <p>
                     Data Alumni
@@ -124,7 +147,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/manajemen_wisuda/admin_pendaftar" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Pendaftar</p>
                     </a>
@@ -162,6 +185,83 @@
                 </li>
                 </ul>
             </li>
+            {% endif %}
+            {% if session['id_grup'] == 2 %}
+            <li class="nav-item">
+                <a href="/publish_jurnal" class="nav-link">
+                <i class="nav-icon fas fa-address-book"></i>
+                <p>
+                    Publikasi Jurnal
+                </p>
+                </a>
+            </li>
+            <li class="nav-item menu-open">
+                <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-newspaper"></i>
+                <p>
+                    Tugas Akhir
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+                </a>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="/tugas_akhir_mahasiswa" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pembimbing</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Mahasiswa</p>
+                    </a>
+                </li>
+                </ul>
+            </li>
+            {% endif %}
+            {% if session['id_grup'] == 3 %}
+
+            <li class="nav-item menu-open">
+                <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-chair"></i>
+                <p>
+                    Wisudah
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+                </a>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="/manajemen_wisuda/daftar_wisuda" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Daftar</p>
+                    </a>
+                </li>
+                </ul>
+            </li>
+            <li class="nav-item menu-open">
+                <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-newspaper"></i>
+                <p>
+                    Tugas Akhir
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+                </a>
+                <!-- <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="/tugas_akhir_mahasiswa" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pembimbing</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Mahasiswa</p>
+                    </a>
+                </li>
+                </ul> -->
+            </li>
+            {% endif %}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
