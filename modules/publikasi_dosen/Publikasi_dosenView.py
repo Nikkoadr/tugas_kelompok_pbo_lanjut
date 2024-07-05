@@ -42,11 +42,13 @@ class Publikasi_dosenView:
     def update(id):
         data = Publikasi_dosenModel().find(id)
         if data:
-            post = request.form
+            form = request.form
             obj = Publikasi_dosenModel()
-            obj.tgl_publikasi = post['tgl_publikasi']
-            obj.judul = post['judul']
-            obj.jenis_publikasi = post['jenis_publikasi']
+            obj.judul = form['judul']
+            obj.jenis = form['jenis']
+            obj.tahun = form['tahun']
+            obj.abstrak = form['abstrak']
+            obj.status = form['status']
             Publikasi_dosenModel().update(id, obj)
             flash('Data Berhasil Diperbarui', 'success')
             return redirect('/publikasi_dosen')

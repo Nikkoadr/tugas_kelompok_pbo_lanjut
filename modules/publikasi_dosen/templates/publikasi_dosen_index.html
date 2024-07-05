@@ -276,12 +276,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Career Center</h1>
+                    <h1>Publikasi Dosen</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Career Center</li>
+                    <li class="breadcrumb-item active">Publikasi Dosen</li>
                     </ol>
                 </div>
                 </div>
@@ -295,47 +295,44 @@
                 <div class="col-12">
 
                     <div class="card">
-                    <div class="card-header">
-                        <a class="btn btn-success float-end" href="/alumni_career_center/create">Tambah</a>
-                    </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <table id="example1" class="table table-bordered table-striped">
-                                            <thead>
-                <tr class="text-center">
-                    <th>No</th>
-                    <th>Tanggal Publikasi</th>
-                    <th>Judul Publikasi</th>
-                    <th>Jenis Publikasi</th>
-                    <th>Abstrak</th>
-                    <th>Nama Dosen</th>
-                    <th>status</th>
-                    <th>Aksi</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for obj in data %}
-                <tr class="text-center">
-                    <td>{{ loop.index }}</td>
-                    <td>{{obj.tahun}}</td>
-                    <td>{{obj.judul}}</td>
-                    <td>{{obj.jenis}}</td>
-                    <td>{{obj.abstrak}}</td>
-                    <td>{{obj.nama_awal}} {{ obj.nama_akhir }}</td>
-                    <td>{{obj.status}}</td>
-                    <td class="text-center align-middle">
-                        <div class="btn-group" role="group" aria-label="Action buttons">
-                            <a class="btn btn-info" href="/publikasi_dosen/edit/{{obj.id_publikasi_dosen}}">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a class="btn btn-danger delete" href="/publikasi_dosen/delete/{{obj.id_publikasi_dosen}}" title="delete" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">
-                                <i class="fas fa-trash-alt"></i>
-                            </a>
-                        </div>
-                    </td>
-                </tr>
-                {% endfor %}
-                </tbody>
+                            <thead>
+                            <tr class="text-center">
+                                <th>No</th>
+                                <th>Judul</th>
+                                <th>Jenis</th>
+                                <th>tahun</th>
+                                <th>Abstrak</th>
+                                <th>Dosen</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for obj in data %}
+                            <tr class="text-center">
+                                <td>{{ loop.index }}</td>
+                                <td>{{obj.judul}}</td>
+                                <td>{{obj.jenis}}</td>
+                                <td>{{obj.tahun}}</td>
+                                <td>{{obj.abstrak}}</td>
+                                <td>{{obj.nama_awal}} {{ obj.nama_akhir }}</td>
+                                <td>{{obj.status}}</td>
+                                <td class="text-center align-middle">
+                                    <div class="btn-group" role="group" aria-label="Action buttons">
+                                        <a class="btn btn-info" href="/publikasi_dosen/edit/{{obj.id_publikasi}}">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-danger delete" href="/publikasi_dosen/delete/{{obj.id_publikasi}}" title="delete" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
                         </table>
                     </div>
                     <!-- /.card-body -->
