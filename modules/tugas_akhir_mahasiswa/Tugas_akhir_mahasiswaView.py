@@ -16,11 +16,15 @@ class Tugas_akhir_mahasiswaView:
     def store():
         obj = Tugas_akhir_mahasiswaModel()
         post = request.form
-        obj.nim = post['nim']
-        obj.nama = post['nama']
+        obj.judul = post['judul']
+        obj.deskripsi = post['deskripsi']
+        obj.status = post['status']
+        obj.nilai = post['nilai']
+        obj.tanggal_penyerahan = post['tanggal_penyerahan']
+        obj.catatan = post['catatan']
         Tugas_akhir_mahasiswaModel().store(obj)
         flash('Data berhasil ditambahkan', 'success')
-        return redirect('/ta_mahasiswa')
+        return redirect('/tugas_akhir_mahasiswa')
     
     @staticmethod
     def edit(id):
@@ -33,8 +37,12 @@ class Tugas_akhir_mahasiswaView:
         if data:
             post = request.form
             obj = Tugas_akhir_mahasiswaModel()
-            obj.nim = post['nim']
-            obj.nama = post['nama']
+            obj.judul = post['judul']
+            obj.deskripsi = post['deskripsi']
+            obj.status = post['status']
+            obj.nilai = post['nilai']
+            obj.tanggal_penyerahan = post['tanggal_penyerahan']
+            obj.catatan = post['catatan']
             Tugas_akhir_mahasiswaModel().update(id, obj)
             flash('Data Berhasil Diperbarui', 'success')
             return redirect('/tugas_akhir_mahasiswa')

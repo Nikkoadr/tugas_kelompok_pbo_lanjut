@@ -2,7 +2,7 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tambah Tugas Akhir</title>
+    <title>Admin</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -275,13 +275,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Tambah Tugas Akhir</h1>
+                    <h1>Mahasiswa</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item">Tugas Akhir</li>
-                    <li class="breadcrumb-item active">Tambah</li>
+                    <li class="breadcrumb-item active">Tugas Akhir Mahasiswa</li>
                     </ol>
                 </div>
                 </div>
@@ -297,34 +296,43 @@
                     <div class="card">
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="/tugas_akhir_mahasiswa/store" method="POST">
-                            <div class="mb-3">
-                                <label for="judul" class="form-label">Judul:</label>
-                                <input id="judul" name="judul" type="text" class="form-control"  required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="deskripsi" class="form-label">Deskripsi:</label>
-                                <input id="deskripsi" name="deskripsi" type="text" class="form-control" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="status" class="form-label">Status:</label>
-                                <input id="status" name="status" type="text" class="form-control" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="nilai" class="form-label">Nilai:</label>
-                                <input id="nilai" name="nilai" type="text" class="form-control" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="tanggal_penyerahan" class="form-label">Tanggal Penyerahan:</label>
-                                <input id="tanggal_penyerahan" name="tanggal_penyerahan" type="date" class="form-control" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="catatan" class="form-label">Catatan:</label>
-                                <input id="catatan" name="catatan" type="text" class="form-control" required>
-                            </div>
-                            <a class="btn btn-secondary float-end ms-2" href="/tugas_akhir_mahasiswa" >Kembali</a>
-                            <input type="submit" value="Tambah" class="btn btn-primary float-end">
-                        </form>
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                            <tr class="text-center">
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Email</th>
+                                <th>No_hp</th>
+                                <th>Lowongan</th>
+                                <th>Tanggal melamar</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for obj in data %}
+                            <tr class="text-center">
+                                <td>{{ loop.index }}</td>
+                                <td>{{obj.nama}}</td>
+                                <td>{{obj.email}}</td>
+                                <td>{{obj.no_hp}}</td>
+                                <td>{{obj.perusahaan}}</td>
+                                <td>{{obj.tanggal_melamar}}</td>
+                                <td>{{obj.status}}</td>
+                                <td class="text-center align-middle">
+                                    <div class="btn-group" role="group" aria-label="Action buttons">
+                                        <a class="btn btn-info" href="/alumni_career_center/edit_data_pelamar/{{obj.id_pelamar}}">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-danger delete" href="/alumni_career_center/hapus_data_pelamar/{{obj.id_pelamar}}" title="delete" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
                     <!-- /.card-body -->
                     </div>
