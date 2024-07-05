@@ -91,3 +91,16 @@ class Manajemen_wisudaView:
         id_wisuda = request.form['id_wisuda']
         id_mahasiswa = request.form['id_mahasiswa']
         return render_template('daftar_wisuda.html', id_wisuda=id_wisuda, id_mahasiswa=id_mahasiswa)
+
+    @staticmethod
+    def tambah_peserta_wisuda():
+        obj = Peserta_wisudaModel()
+        post = request.form
+        obj.id_wisuda = post['id_wisuda']
+        obj.id_mahasiswa = post['id_mahasiswa']
+        obj.no_urut = post['no_urut']
+        Peserta_wisudaModel().store(obj)
+        id_wisuda = post['id_wisuda']
+        id_mahasiswa = post['id_mahasiswa']
+        detail = Peserta_wisudaModel().cari_wisuda(id_wisuda, id_mahasiswa)
+        return render_template('undangan_wisuda_mahasiswa.html', obj=obj, detail=detail)

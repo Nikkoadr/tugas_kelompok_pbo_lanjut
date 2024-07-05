@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Wisuda</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+form {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.invitation {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+    </style>
+</head>
+<body>
+    <div class="invitation">
+        <h2>Undangan Wisuda</h2>
+        <p><strong>No. Urut:</strong> {{ detail.no_urut }}</p>
+        <p><strong>Nama:</strong> {{ detail.nama_awal }} {{ detail.nama_akhir }}</p>
+        
+        <h3>Detail Acara:</h3>
+        <p><strong>Hari/Tanggal:</strong> {{ obj.id_wisuda }}</p>
+        
+        <p><strong>Waktu:</strong> 09.00 Wib</p>
+        <p><strong>Tempat:</strong> Aula Universitas Abal Abal</p>
+
+        <p>Kami mengundang Anda untuk menghadiri acara wisuda yang akan diselenggarakan pada tanggal yang telah ditentukan. Kami berharap kehadiran Anda dapat memberikan semangat dan dukungan kepada para wisudawan.</p>
+
+        <p>Salam Hormat,</p>
+        <p>Admin</p>
+        <p>Universitas Abal Abal</p>
+    </div>
+    <script>
+        window.print();
+    </script>
+</body>
+</html>

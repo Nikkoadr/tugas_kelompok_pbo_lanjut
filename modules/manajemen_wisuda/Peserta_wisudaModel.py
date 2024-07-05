@@ -30,3 +30,30 @@ class Peserta_wisudaModel(CoreModel):
         cursor.close()
         connection.close()
         return result
+        
+    def cari_wisuda(self, id_wisuda, id_mahasiswa):
+        connection = get_db()
+        cursor = connection.cursor()
+        query = """
+            SELECT
+                peserta_wisuda.id_peserta,
+                user.nama_awal,
+                user.nama_akhir,
+                wisuda.tgl_wisuda,
+                peserta_wisuda.no_urut
+            FROM
+                peserta_wisuda
+            JOIN
+                mahasiswa ON peserta_wisuda.id_mahasiswa = mahasiswa.id_mahasiswa
+            JOIN 
+                user ON mahasiswa.id_user = user.id_user
+            JOIN 
+                wisuda ON peserta_wisuda.id_wisuda = wisuda.id_wisuda
+            WHERE
+                peserta_wisuda.id_wisuda = %s AND peserta_wisuda.id_mahasiswa = %s;
+        """
+        cursor.execute(query, (id_wisuda, id_mahasiswa))
+        result = cursor.fetchone()
+        cursor.close()
+        connection.close()
+        return result
