@@ -10,7 +10,8 @@ class Publikasi_dosenView:
 
     @staticmethod
     def publish_jurnal():
-        return render_template('publikasi_dosen_create.html')
+        obj = Publikasi_dosenModel.cari_jurnal_dosen(session['id_dosen'])
+        return render_template('publikasi_dosen_create.html', obj=obj)
     
     @staticmethod
     def store():
@@ -21,10 +22,11 @@ class Publikasi_dosenView:
         obj.jenis = form['jenis']
         obj.tahun = form['tahun']
         obj.abstrak = form['abstrak']
+        obj.id_dosen = session['id_dosen']
         obj.status = 'review'
         Publikasi_dosenModel().store(obj)
         flash('Data Berhasil Ditambahkan', 'success')
-        return redirect('/publikasi_dosen')
+        return redirect('/home')
     
     @staticmethod
     def edit(id):

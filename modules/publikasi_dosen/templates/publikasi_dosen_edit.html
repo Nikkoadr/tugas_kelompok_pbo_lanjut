@@ -306,9 +306,10 @@
                             <label for="abstrak" class="form-label">Abstrak</label>
                             <input id="abstrak" name="abstrak" type="text" class="form-control" value="{{ obj.abstrak }}">
                             <label for="status" class="form-label">Status</label>
-                            <select class="custom-select rounded-0" name="status" name="status" id="status">
-                                <option value="publish">Publish</option>
-                                <option value="review">Review</option>
+                            <select class="custom-select rounded-0" name="status" id="status">
+                                {% for option in ['publish', 'review'] %}
+                                    <option value="{{ option }}" {% if obj.status == option %}selected{% endif %}>{{ option.capitalize() }}</option>
+                                {% endfor %}
                             </select>
                             <button type="submit" class="btn btn-primary mt-2 float-right">Edit</button>
                         </form>

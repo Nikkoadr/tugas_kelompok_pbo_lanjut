@@ -19,7 +19,9 @@ class LoginModel(CoreModel):
             mahasiswa_query = "SELECT id_mahasiswa FROM mahasiswa WHERE id_user = %s LIMIT 1;"
             cursor.execute(mahasiswa_query, (user['id_user'],))
             mahasiswa = cursor.fetchone()
-            
+            dosen_query = "SELECT id_dosen FROM dosen WHERE id_user = %s LIMIT 1;"
+            cursor.execute(dosen_query, (user['id_user'],))
+            dosen = cursor.fetchone()
             cursor.close()
             connection.close()
             
@@ -29,7 +31,8 @@ class LoginModel(CoreModel):
                 'nama_awal': user['nama_awal'],
                 'nama_akhir': user['nama_akhir'],
                 'id_grup': user['id_grup'],
-                'id_mahasiswa': mahasiswa['id_mahasiswa'] if mahasiswa else None
+                'id_mahasiswa': mahasiswa['id_mahasiswa'] if mahasiswa else None,
+                'id_dosen': dosen['id_dosen'] if dosen else None
             }
         
         cursor.close()
