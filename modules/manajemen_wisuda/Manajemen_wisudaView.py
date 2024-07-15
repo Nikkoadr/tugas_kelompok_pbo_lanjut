@@ -100,6 +100,7 @@ class Manajemen_wisudaView:
         obj.id_mahasiswa = post['id_mahasiswa']
         obj.no_urut = post['no_urut']
         Peserta_wisudaModel().store(obj)
+        
         id_wisuda = post['id_wisuda']
         id_mahasiswa = post['id_mahasiswa']
         detail = Peserta_wisudaModel().cari_wisuda(id_wisuda, id_mahasiswa)
